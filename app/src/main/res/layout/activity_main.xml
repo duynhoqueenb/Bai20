@@ -11,12 +11,18 @@
         style="@style/MyCustomTabLayout"
         android:layout_width="match_parent"
         android:layout_height="56dp">
-
     </com.google.android.material.tabs.TabLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e4e4e4"
+        android:layout_below="@id/sliding_tabs"
+        android:id="@+id/line"/>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/sliding_tabs" />
+        android:layout_below="@id/line" />
 </RelativeLayout>

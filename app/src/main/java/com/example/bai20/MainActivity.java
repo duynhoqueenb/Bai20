@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
 
+
+
         for (int i = 0; i < tabLayout.getTabCount(); i++){
             TabLayout.Tab tab = tabLayout.getTabAt(i);
             tab.setCustomView(pagerAdapter.getTabView(i));

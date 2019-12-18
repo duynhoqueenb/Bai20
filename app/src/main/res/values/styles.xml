@@ -12,6 +12,9 @@
         <item name="tabIndicatorColor">#000000</item>
         <item name="tabIndicatorHeight">4.5dp</item>
         <item name="tabMode">fixed</item>
+        <item name="tabIndicatorFullWidth">false</item>
+        <item name="tabPaddingStart">30dp</item>
+        <item name="tabPaddingEnd">30dp</item>
         <item name="tabTextAppearance">@style/MyCustomTabTextAppearance</item>
     </style>
 
