@@ -1,6 +1,7 @@
 package com.example.bai20;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.AttributeSet;
@@ -37,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
         initTabView();
-
+        final TextView tvTab0 = (TextView) tabLayout.getTabAt(0).getCustomView().findViewById(R.id.tv_title);
+        final TextView tvTab1 = (TextView) tabLayout.getTabAt(1).getCustomView().findViewById(R.id.tv_title);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -51,12 +53,16 @@ public class MainActivity extends AppCompatActivity {
                         "Selected page position: " + position, Toast.LENGTH_SHORT).show();
                 switch (position) {
                     case 0:
-                        ((TextView) tabLayout.getTabAt(0).getCustomView().findViewById(R.id.tv_title)).setTypeface(Typeface.createFromAsset(MainActivity.this.getAssets(), ""));
-                        ((TextView) tabLayout.getTabAt(1).getCustomView().findViewById(R.id.tv_title2)).setTypeface(Typeface.createFromAsset(MainActivity.this.getAssets(), ""));
+                        tvTab0.setTypeface(Typeface.createFromAsset(MainActivity.this.getAssets(), "fonts/helveticalmedium.ttf"));
+                        tvTab0.setTextColor(Color.parseColor("#000000"));
+                        tvTab1.setTypeface(Typeface.createFromAsset(MainActivity.this.getAssets(), "fonts/helveticallight.ttf"));
+                        tvTab1.setTextColor(Color.parseColor("#ff0000"));
                         break;
                     case 1:
-                        ((TextView) tabLayout.getTabAt(0).getCustomView().findViewById(R.id.tv_title2)).setTypeface(Typeface.createFromAsset(MainActivity.this.getAssets(), ""));
-                        ((TextView) tabLayout.getTabAt(1).getCustomView().findViewById(R.id.tv_title)).setTypeface(Typeface.createFromAsset(MainActivity.this.getAssets(), ""));
+                        tvTab0.setTypeface(Typeface.createFromAsset(MainActivity.this.getAssets(), "fonts/helveticallight.ttf"));
+                        tvTab0.setTextColor(Color.parseColor("#ff0000"));
+                        tvTab1.setTypeface(Typeface.createFromAsset(MainActivity.this.getAssets(), "fonts/helveticalmedium.ttf"));
+                        tvTab1.setTextColor(Color.parseColor("#000000"));
                         break;
                 }
             }
@@ -67,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        reduceMarginsInTabs(tabLayout,70);
+
     }
 
     @Nullable
@@ -88,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         Objects.requireNonNull(tabLayout.getTabAt(0)).setCustomView(viewTab1);
 
         View viewTab2 = LayoutInflater.from(this).inflate(R.layout.custom_tab, containerRoot, false);
-        ((TextView) viewTab2.findViewById(R.id.tv_title2)).setText("tab2");
+        ((TextView) viewTab2.findViewById(R.id.tv_title)).setText("tab2");
         viewTab2.findViewById(R.id.tv_title).setSelected(true);
         Objects.requireNonNull(tabLayout.getTabAt(1)).setCustomView(viewTab2);
     }
