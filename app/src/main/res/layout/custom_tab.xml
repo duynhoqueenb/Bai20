@@ -17,11 +17,11 @@
         android:id="@+id/tv_title"
         android:fontFamily=""/>
 
-<!--    <TextView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:textColor="#909090"-->
-<!--        android:textSize="12sp"-->
-<!--        android:id="@+id/tv_title2"-->
-<!--        android:fontFamily=""/>-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#909090"
+        android:textSize="12sp"
+        android:id="@+id/tv_title2"
+        android:fontFamily=""/>
 </LinearLayout>

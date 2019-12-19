@@ -1,9 +1,6 @@
 package com.example.bai20;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -14,7 +11,7 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
     final int PAGE_COUNT = 2;
     private Context context;
 
-    private String tabTitles[] = new String[]{"Tuyển dụng", "CV Cá Nhân"};
+//    private String tabTitles[] = new String[]{"Tuyển dụng", "CV Cá Nhân"};
 //    private int[] imageResId = {
 //            R.drawable.ic_one,
 //            R.drawable.ic_one
@@ -52,19 +49,19 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
 //        return sb;
 //    }
 
-    public View getTabView(int position) {
-        // Given you have a custom layout in `res/layout/custom_tab.xml` with a TextView and ImageView
-        View v = LayoutInflater.from(context).inflate(R.layout.custom_tab, null);
-
-        TextView tv = (TextView) v.findViewById(R.id.tv_title);
-//        Typeface myFont = Typeface.createFromAsset(v.getContext().getAssets(),"fonts/TuoiTreTV.ttf");
-//        tv.setTypeface(myFont);
-        tv.setText(tabTitles[position]);
-//        ImageView img = (ImageView) v.findViewById(R.id.img_title);
-//        img.setImageResource(imageResId[position]);
-        return v;
-    }
-
+//    public View getTabView(int position) {
+//        // Given you have a custom layout in `res/layout/custom_tab.xml` with a TextView and ImageView
+//        View v = LayoutInflater.from(context).inflate(R.layout.custom_tab, null);
+//
+//        TextView tv = (TextView) v.findViewById(R.id.tv_title);
+////        Typeface myFont = Typeface.createFromAsset(v.getContext().getAssets(),"fonts/TuoiTreTV.ttf");
+////        tv.setTypeface(myFont);
+//        tv.setText(/*tabTitles[position]*/"");
+////        ImageView img = (ImageView) v.findViewById(R.id.img_title);
+////        img.setImageResource(imageResId[position]);
+//        return v;
+//    }
+//
 //    public View getTabViewNoSelected(int position){
 //        View v = LayoutInflater.from(context).inflate(R.layout.custom_tab_no_selected, null);
 //        TextView tv = v.findViewById(R.id.tv_title);
