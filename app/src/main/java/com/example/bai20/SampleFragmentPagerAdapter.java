@@ -28,7 +28,11 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        return PageFragment.newInstance(position);
+        switch (position){
+            case 0: return PageFragment.newInstance(0);
+            case 1: return PageFragment.newInstance(1);
+            default: return null;
+        }
     }
 
     @Override
@@ -61,4 +65,10 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
         return v;
     }
 
+//    public View getTabViewNoSelected(int position){
+//        View v = LayoutInflater.from(context).inflate(R.layout.custom_tab_no_selected, null);
+//        TextView tv = v.findViewById(R.id.tv_title);
+//        tv.setText(tabTitles[position]);
+//        return v;
+//    }
 }
