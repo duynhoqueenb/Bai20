@@ -27,7 +27,7 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0: return PageFragment.newInstance(0);
-            case 1: return PageFragment.newInstance(1);
+            case 1: return Page2Fragment.newInstance(1);
             default: return null;
         }
     }

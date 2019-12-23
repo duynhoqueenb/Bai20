@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/background_itemview1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/li_title"
+        android:textSize="12sp"
+        android:textColor="#4a4a4a"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/li_vitri"
+        android:layout_below="@id/li_title"
+        android:textSize="18sp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/li_luong"
+        android:layout_below="@id/li_vitri"
+        android:textSize="14sp"
+        android:textColor="#ec2400"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/li_soluong"
+        android:layout_below="@id/li_luong"
+        android:layout_alignParentLeft="true"
+        android:textSize="10sp"
+        android:textColor="#4a4a4a"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/li_thoihan"
+        android:layout_below="@id/li_luong"
+        android:layout_alignParentRight="true"
+        android:textSize="10sp"
+        android:textColor="#4a4a4a"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/li_footer_left"
+        android:layout_alignParentBottom="true"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="@drawable/background_itemview1_ft">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/li_icon_eye"
+            android:text="@string/icon_eye"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/li_tvIconEye"
+            android:layout_toRightOf="@id/li_icon_eye"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/background_itemview1_ft2"
+        android:layout_alignParentRight="true"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="21dp"
+        android:paddingRight="21dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/li_iconFlash"
+            android:text="@string/icon_flash"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/li_tvIconFlash"
+            android:layout_toRightOf="@id/li_iconFlash"/>
+    </RelativeLayout>
+</RelativeLayout>

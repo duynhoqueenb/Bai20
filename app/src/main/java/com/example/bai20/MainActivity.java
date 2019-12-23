@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         tabLayout = findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
+
         initTabView();
         final TextView tvTab0 = (TextView) tabLayout.getTabAt(0).getCustomView().findViewById(R.id.tv_title);
         final TextView tvTab1 = (TextView) tabLayout.getTabAt(1).getCustomView().findViewById(R.id.tv_title);
@@ -54,13 +56,13 @@ public class MainActivity extends AppCompatActivity {
                 switch (position) {
                     case 0:
                         tvTab0.setTypeface(Typeface.createFromAsset(MainActivity.this.getAssets(), "fonts/helveticalmedium.ttf"));
-                        tvTab0.setTextColor(Color.parseColor("#000000"));
+                        tvTab0.setTextColor(ContextCompat.getColor(MainActivity.this,R.color.colorAccent));
                         tvTab1.setTypeface(Typeface.createFromAsset(MainActivity.this.getAssets(), "fonts/helveticallight.ttf"));
-                        tvTab1.setTextColor(Color.parseColor("#ff0000"));
+                        tvTab1.setTextColor(Color.parseColor("#000000"));
                         break;
                     case 1:
                         tvTab0.setTypeface(Typeface.createFromAsset(MainActivity.this.getAssets(), "fonts/helveticallight.ttf"));
-                        tvTab0.setTextColor(Color.parseColor("#ff0000"));
+                        tvTab0.setTextColor(Color.parseColor("#000000"));
                         tvTab1.setTypeface(Typeface.createFromAsset(MainActivity.this.getAssets(), "fonts/helveticalmedium.ttf"));
                         tvTab1.setTextColor(Color.parseColor("#000000"));
                         break;
@@ -89,12 +91,12 @@ public class MainActivity extends AppCompatActivity {
 
     void initTabView() {
         View viewTab1 = LayoutInflater.from(this).inflate(R.layout.custom_tab, containerRoot, false);
-        ((TextView) viewTab1.findViewById(R.id.tv_title)).setText("tab1");
+        ((TextView) viewTab1.findViewById(R.id.tv_title)).setText("Tuyển Dụng");
         viewTab1.findViewById(R.id.tv_title).setSelected(true);
         Objects.requireNonNull(tabLayout.getTabAt(0)).setCustomView(viewTab1);
 
         View viewTab2 = LayoutInflater.from(this).inflate(R.layout.custom_tab, containerRoot, false);
-        ((TextView) viewTab2.findViewById(R.id.tv_title)).setText("tab2");
+        ((TextView) viewTab2.findViewById(R.id.tv_title)).setText("CV Cá Nhân");
         viewTab2.findViewById(R.id.tv_title).setSelected(true);
         Objects.requireNonNull(tabLayout.getTabAt(1)).setCustomView(viewTab2);
     }
