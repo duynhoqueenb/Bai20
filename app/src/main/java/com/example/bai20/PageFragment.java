@@ -62,7 +62,7 @@ public class PageFragment extends Fragment {
     }
 
     public void createItemListData() {
-        PageFragment1Model datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "5 nguoi", "30/12/2019", "700", "ung vien (3)");
+        PageFragment1Model datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "5 nguoi", "30/12/2019", "700", "Ung vien (3)");
         itemList.add(datalist);
 
         datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "5 nguoi", "30/12/2019", "700", "ung vien (3)");
