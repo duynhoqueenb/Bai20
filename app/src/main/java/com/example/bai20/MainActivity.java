@@ -97,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
 
         View viewTab2 = LayoutInflater.from(this).inflate(R.layout.custom_tab, containerRoot, false);
         ((TextView) viewTab2.findViewById(R.id.tv_title)).setText("CV Cá Nhân");
+        Typeface mytypeface = Typeface.createFromAsset(getAssets(),"fonts/helveticallight.ttf");
+        ((TextView) viewTab2.findViewById(R.id.tv_title)).setTypeface(mytypeface);
         viewTab2.findViewById(R.id.tv_title).setSelected(true);
         Objects.requireNonNull(tabLayout.getTabAt(1)).setCustomView(viewTab2);
     }

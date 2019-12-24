@@ -72,9 +72,7 @@ public class PageFragment1Model {
         return ungvien;
     }
 
-    public PageFragment1Model(){
 
-    }
 }
 
 
