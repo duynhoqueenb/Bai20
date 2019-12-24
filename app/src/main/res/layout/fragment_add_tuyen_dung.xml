@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".FragmentAddTuyenDung"
+        android:background="#ffffff">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rlt_header"
+            android:padding="18dp">
+
+            <View
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:background="@color/colorPrimary"
+                android:id="@+id/view_logo"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Công Ty Cổ Phần Truyền Thông VietLive"
+                android:textSize="18dp"
+                android:layout_toRightOf="@+id/view_logo"
+                android:layout_marginLeft="15dp"
+                android:textColor="#000000"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#d9d9d9"
+            android:layout_below="@id/rlt_header"
+            android:id="@+id/fragTd_line"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Giới thiệu về công ty"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:layout_below="@id/fragTd_line"
+            android:layout_margin="18dp"
+            android:id="@+id/tv_gioithieu"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="226dp"
+            android:background="#464646"
+            android:layout_below="@id/tv_gioithieu"
+            android:id="@+id/view_video"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:textColor="#4a4a4a"
+            android:text="Số 19 Nguyễn Tiểu La, Phường 10, Quận 10, Tp. Hồ Chí Minh
+    Giới thiệu công ty Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been lorem text. Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been lorem text. Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been lorem text."
+            android:layout_below="@id/view_video"
+            android:id="@+id/tv_gt_content"
+            android:layout_margin="18dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thu gon"
+            android:layout_below="@id/tv_gt_content"
+            android:textColor="#ed2a56"
+            android:textSize="12sp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/tv_thugon"/>
+
+
+    </RelativeLayout>
+</ScrollView>

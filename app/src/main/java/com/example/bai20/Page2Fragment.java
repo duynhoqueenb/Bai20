@@ -91,6 +91,24 @@ public class Page2Fragment extends Fragment {
 
         dataList2 = new PageFragment2Model("Truong phong nhan su","2 nam");
         itemList2.add(dataList2);
+
+        dataList2 = new PageFragment2Model("Giam doc kinh doanh","5 nam");
+        itemList2.add(dataList2);
+
+        dataList2 = new PageFragment2Model("Truong phong nhan su","2 nam");
+        itemList2.add(dataList2);
+
+        dataList2 = new PageFragment2Model("Giam doc kinh doanh","5 nam");
+        itemList2.add(dataList2);
+
+        dataList2 = new PageFragment2Model("Truong phong nhan su","2 nam");
+        itemList2.add(dataList2);
+
+        dataList2 = new PageFragment2Model("Giam doc kinh doanh","5 nam");
+        itemList2.add(dataList2);
+
+        dataList2 = new PageFragment2Model("Truong phong nhan su","2 nam");
+        itemList2.add(dataList2);
     }
 
 

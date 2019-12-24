@@ -16,8 +16,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.Objects;
@@ -75,7 +79,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        FloatingActionButton buttonFab = findViewById(R.id.fab);
+        buttonFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddFragmentTuyenDung(v);
+            }
+        });
     }
 
     @Nullable
@@ -116,5 +126,15 @@ public class MainActivity extends AppCompatActivity {
             }
             tabLayout.requestLayout();
         }
+    }
+
+    public void AddFragmentTuyenDung(View view){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction =fragmentManager.beginTransaction();
+        Fragment fragment = null;
+        fragment = FragmentAddTuyenDung.newInstance();
+        fragmentTransaction.replace(R.id.placeholder, fragment);
+        fragmentTransaction.addToBackStack("optional tag");
+        fragmentTransaction.commitAllowingStateLoss();
     }
 }
