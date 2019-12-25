@@ -7,7 +7,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".FragmentAddTuyenDung"
-        android:background="#ffffff">
+        android:background="#ffffff"
+        android:textSize="12sp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -15,10 +16,9 @@
             android:id="@+id/rlt_header"
             android:padding="18dp">
 
-            <View
+            <ImageView
                 android:layout_width="55dp"
                 android:layout_height="55dp"
-                android:background="@color/colorPrimary"
                 android:id="@+id/view_logo"
                 android:layout_centerVertical="true"/>
 
@@ -77,6 +77,364 @@
             android:layout_centerHorizontal="true"
             android:id="@+id/tv_thugon"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lĩnh vực hoạt động"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:layout_below="@id/tv_thugon"
+            android:layout_margin="18dp"
+            android:id="@+id/tv_linhvuc"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Số năm hoạt động"
+            android:layout_below="@id/tv_linhvuc"
+            android:layout_marginLeft="18dp"
+            android:id="@+id/tv_sonam" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10 nam"
+            android:layout_below="@id/tv_linhvuc"
+            android:layout_marginRight="18dp"
+            android:id="@+id/tv_10nam"
+            android:layout_alignParentRight="true"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:layout_marginTop="15dp"
+            android:text="Truyen thong"
+            android:background="@drawable/tag_tuyendung"
+            android:layout_below="@id/tv_sonam"
+            android:layout_marginLeft="18dp"
+            android:id="@+id/tv_truyenthong"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:layout_marginTop="15dp"
+            android:text="Quang cao"
+            android:background="@drawable/tag_tuyendung"
+            android:layout_below="@id/tv_sonam"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/tv_quangcao"
+            android:layout_toRightOf="@id/tv_truyenthong"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:layout_marginTop="15dp"
+            android:text="Cong dong"
+            android:background="@drawable/tag_tuyendung"
+            android:layout_below="@id/tv_sonam"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/tv_congdong"
+            android:layout_toRightOf="@id/tv_quangcao"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:layout_marginTop="15dp"
+            android:text="Giai tri"
+            android:background="@drawable/tag_tuyendung"
+            android:layout_below="@id/tv_truyenthong"
+            android:layout_marginLeft="18dp"
+            android:id="@+id/tv_giaitri"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:layout_marginTop="15dp"
+            android:text="To chuc su kien"
+            android:background="@drawable/tag_tuyendung"
+            android:layout_below="@id/tv_truyenthong"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/tv_tochuc"
+            android:layout_toRightOf="@id/tv_giaitri"/>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:layout_marginTop="30dp"
+            android:id="@+id/fragTd_line2"
+            android:layout_below="@id/tv_tochuc"
+            android:background="#d9d9d9"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mo ta cong viec"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:layout_below="@id/fragTd_line2"
+            android:layout_margin="18dp"
+            android:id="@+id/tv_motacv"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/icon_edit"
+            android:layout_below="@id/fragTd_line2"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="18dp"
+            android:text="@string/icon_edit"
+            android:layout_marginTop="18dp"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_congviec"
+            android:layout_below="@id/tv_motacv"
+            android:text="Cong viec"
+            android:layout_marginLeft="18sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_mucluong"
+            android:layout_below="@id/tv_congviec"
+            android:text="Muc luong mong muon"
+            android:layout_marginLeft="18sp"
+            android:layout_marginTop="14dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_soluong"
+            android:layout_below="@id/tv_mucluong"
+            android:text="So luong"
+            android:layout_marginLeft="18sp"
+            android:layout_marginTop="14dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_gioitinh"
+            android:layout_below="@id/tv_soluong"
+            android:text="Gioi tinh"
+            android:layout_marginLeft="18sp"
+            android:layout_marginTop="14dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_thoihan"
+            android:layout_below="@id/tv_gioitinh"
+            android:text="Thoi han"
+            android:layout_marginLeft="18sp"
+            android:layout_marginTop="14dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_diadiem"
+            android:layout_below="@id/tv_thoihan"
+            android:text="Dia diem lam viec"
+            android:layout_marginLeft="18sp"
+            android:layout_marginTop="14dp"/>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:layout_marginTop="18dp"
+            android:id="@+id/fragTd_line3"
+            android:layout_below="@id/tv_diadiem"
+            android:background="#d9d9d9"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vi tri can tuyen"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:layout_below="@id/fragTd_line3"
+            android:layout_margin="18dp"
+            android:id="@+id/tv_vitri"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/icon_edit2"
+            android:layout_below="@id/fragTd_line3"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="18dp"
+            android:text="@string/icon_edit"
+            android:layout_marginTop="18dp"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nội dung yêu cầu"
+            android:textSize="14sp"
+            android:id="@+id/tv_noidung"
+            android:layout_below="@id/tv_vitri"
+            android:layout_marginLeft="18dp"/>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:layout_marginTop="30dp"
+            android:id="@+id/fragTd_line4"
+            android:layout_below="@id/tv_noidung"
+            android:background="#d9d9d9"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kỹ năng chuyên môn"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:layout_below="@id/fragTd_line4"
+            android:layout_margin="18dp"
+            android:id="@+id/tv_kynang"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/icon_edit3"
+            android:layout_below="@id/fragTd_line4"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="18dp"
+            android:text="@string/icon_edit"
+            android:layout_marginTop="18dp"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Số năm kinh nghiệm"
+            android:textSize="14sp"
+            android:id="@+id/tv_sonamkinhnghiem"
+            android:layout_below="@id/tv_kynang"
+            android:layout_marginLeft="18dp"/>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:layout_marginTop="30dp"
+            android:id="@+id/fragTd_line5"
+            android:layout_below="@id/tv_sonamkinhnghiem"
+            android:background="#d9d9d9"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quyền lợi"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:layout_below="@id/fragTd_line5"
+            android:layout_margin="18dp"
+            android:id="@+id/tv_quyenloi"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/icon_edit4"
+            android:layout_below="@id/fragTd_line5"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="18dp"
+            android:text="@string/icon_edit"
+            android:layout_marginTop="18dp"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nội dung quyền lợi của nhân viên công ty"
+            android:textSize="14sp"
+            android:id="@+id/tv_quyenloi_content"
+            android:layout_below="@id/tv_quyenloi"
+            android:layout_marginLeft="18dp"
+            android:layout_marginBottom="36dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/fragTd_footer"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_below="@id/tv_quyenloi_content">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:background="@drawable/button_luunhap">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/icon_luunhap"
+                    android:id="@+id/icon_luunhap"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lưu nháp"
+                    android:layout_marginLeft="5dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:background="#49ba46"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:id="@+id/ll_dangtin">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/icon_dangtin"
+                    android:textColor="#ffffff"
+                    android:id="@+id/icon_dangtin"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Đăng tin"
+                    android:textColor="#ffffff"
+                    android:layout_marginLeft="5dp"/>
+            </LinearLayout>
+        </LinearLayout>
 
     </RelativeLayout>
 </ScrollView>

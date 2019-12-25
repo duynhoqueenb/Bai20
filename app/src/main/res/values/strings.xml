@@ -4,7 +4,9 @@
     <string name="icon_eye">&#xe921;</string>
     <string name="icon_flash">&#xe901;</string>
     <string name="icon_ex">&#xe90c;</string>
-
+    <string name="icon_edit">&#xe90b;</string>
+    <string name="icon_luunhap">&#xe91b;</string>
+    <string name="icon_dangtin">&#xe901;</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
