@@ -7,15 +7,25 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import java.util.ArrayList;
+
 public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
     final int PAGE_COUNT = 2;
     private Context context;
+    private ArrayList<Fragment> lstFragments;
+
+    Fragment fragment0, fragment1;
 
 //    private String tabTitles[] = new String[]{"Tuyển dụng", "CV Cá Nhân"};
 //    private int[] imageResId = {
 //            R.drawable.ic_one,
 //            R.drawable.ic_one
 //    };
+
+
+    void setFragments(ArrayList<Fragment> lstFragments) {
+        this.lstFragments = lstFragments;
+    }
 
     public SampleFragmentPagerAdapter(@NonNull FragmentManager fm, Context context) {
         super(fm);
@@ -25,11 +35,23 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        switch (position){
-            case 0: return PageFragment.newInstance(0);
+        //return lstFragments.get(position);
+        switch (position) {
+            case 0:
+                if (fragment0 == null) {
+                    return fragment0 = PageFragment.newInstance(0);
+                } else {
+                    return fragment0;
+                }
 
-            case 1: return Page2Fragment.newInstance(1);
-            default: return null;
+            case 1:
+                if (fragment1 == null) {
+                    return fragment1 = Page2Fragment.newInstance(1);
+                } else {
+                    return fragment1;
+                }
+            default:
+                return null;
         }
     }
 

@@ -3,36 +3,36 @@
     android:id="@+id/rv_1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/background_itemview1"
-    android:layout_marginBottom="10dp">
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/background_itemview1">
 
     <TextView
         android:id="@+id/li_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#4a4a4a"
-        android:textSize="12sp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:textColor="#4a4a4a"
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/li_vitri"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/li_title"
+        android:layout_marginLeft="10dp"
         android:textColor="#000000"
-        android:textSize="18sp"
-        android:layout_marginLeft="10dp"/>
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/li_luong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/li_vitri"
-        android:textColor="#ec2400"
-        android:textSize="14sp"
         android:layout_marginLeft="10dp"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:textColor="#ec2400"
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/li_soluong"
@@ -40,9 +40,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/li_luong"
         android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
         android:textColor="#4a4a4a"
-        android:textSize="10sp"
-        android:layout_marginLeft="10dp"/>
+        android:textSize="10sp" />
 
     <TextView
         android:id="@+id/li_thoihan"
@@ -58,40 +58,40 @@
         android:id="@+id/li_footer_left"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:background="@drawable/background_itemview1_ft"
-        android:layout_alignParentBottom="true"
-        android:paddingLeft="10dp"
         android:layout_below="@id/li_soluong"
-        android:layout_marginTop="10dp">
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/background_itemview1_ft"
+        android:paddingLeft="10dp">
 
         <TextView
             android:id="@+id/li_icon_eye"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/icon_eye"
             android:layout_centerVertical="true"
-            android:textColor="#c9c9c9"/>
+            android:text="@string/icon_eye"
+            android:textColor="#c9c9c9" />
 
         <TextView
             android:id="@+id/li_tvIconEye"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="6dp"
             android:layout_toRightOf="@id/li_icon_eye"
-            android:textSize="10sp"
-            android:layout_centerVertical="true"
-            android:textColor="#000000"/>
+            android:textColor="#000000"
+            android:textSize="10sp" />
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="30dp"
+        android:layout_below="@id/li_soluong"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:background="@drawable/background_itemview1_ft2"
         android:paddingLeft="21dp"
-        android:paddingRight="21dp"
-        android:layout_below="@id/li_soluong">
+        android:paddingRight="21dp">
 
         <TextView
             android:id="@+id/li_iconFlash"
@@ -99,18 +99,18 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:text="@string/icon_flash"
-            android:textSize="13sp"
-            android:textColor="#ffffff"/>
+            android:textColor="#ffffff"
+            android:textSize="13sp" />
 
         <TextView
             android:id="@+id/li_tvIconFlash"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="4dp"
             android:layout_toRightOf="@id/li_iconFlash"
-            android:layout_centerVertical="true"
-            android:textSize="13sp"
-            android:textColor="#ffffff"/>
+            android:textColor="#ffffff"
+            android:textSize="13sp" />
     </RelativeLayout>
 
 </RelativeLayout>

@@ -72,7 +72,18 @@ public class PageFragment1Model {
         return ungvien;
     }
 
-
+    @Override
+    public String toString() {
+        return "PageFragment1Model{" +
+                "title='" + title + '\'' +
+                ", vitri='" + vitri + '\'' +
+                ", luong='" + luong + '\'' +
+                ", soluong='" + soluong + '\'' +
+                ", thoihan='" + thoihan + '\'' +
+                ", view='" + view + '\'' +
+                ", ungvien='" + ungvien + '\'' +
+                '}';
+    }
 }
 
 

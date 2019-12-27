@@ -1,6 +1,7 @@
 package com.example.bai20;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,43 +52,68 @@ public class PageFragment extends Fragment {
         recyclerView = view.findViewById(R.id.listRecyclerView1);
         recyclerView.setHasFixedSize(true);
 
-        createItemListData();
 
-        listAdapter = new ListAdapter(itemList);
-        recyclerView.setAdapter(listAdapter);
-        layoutManager = new LinearLayoutManager(getActivity());
+
+        layoutManager = new LinearLayoutManager(view.getContext());
         recyclerView.setLayoutManager(layoutManager);
+        listAdapter = new ListAdapter();
+        recyclerView.setAdapter(listAdapter);
+        listAdapter.setData(itemList);
 
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        createItemListData();
+    }
+
     public void createItemListData() {
-        PageFragment1Model datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
-        itemList.add(datalist);
 
-        datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
-        itemList.add(datalist);
+        for (int i = 0; i <= 10; i++) {
+            PageFragment1Model datalist = new PageFragment1Model("Cong ty CP VietLive " + i, "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
+            itemList.add(datalist);
+        }
 
-        datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
-        itemList.add(datalist);
+//        PageFragment1Model datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
+//        itemList.add(datalist);
+//
+//        datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
+//        itemList.add(datalist);
+//
+//        datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
+//        itemList.add(datalist);
+//
+//        datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
+//        itemList.add(datalist);
+//
+//        datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
+//        itemList.add(datalist);
+//
+//        datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
+//        itemList.add(datalist);
+//
+//        datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
+//        itemList.add(datalist);
+//
+//        datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
+//        itemList.add(datalist);
+//
+//        datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
+//        itemList.add(datalist);
 
-        datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
-        itemList.add(datalist);
+    }
 
-        datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
-        itemList.add(datalist);
-
-        datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
-        itemList.add(datalist);
-
-        datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
-        itemList.add(datalist);
-
-        datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
-        itemList.add(datalist);
-
-        datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
-        itemList.add(datalist);
-
+    void addData(PageFragment1Model objAdd) {
+        Log.e("A", "222");
+        if (objAdd != null) {
+            Log.e("A" + itemList.size(), "3333");
+            itemList.add(objAdd);
+            if (listAdapter == null) {
+                listAdapter = new ListAdapter();
+            }
+            listAdapter.setData(itemList);
+        }
     }
 }

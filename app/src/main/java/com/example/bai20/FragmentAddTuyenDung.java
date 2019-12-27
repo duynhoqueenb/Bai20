@@ -38,7 +38,6 @@ public class FragmentAddTuyenDung extends Fragment {
     private EditText tv_diaDiem;
 
 
-
     public FragmentAddTuyenDung() {
         // Required empty public constructor
     }
@@ -109,7 +108,8 @@ public class FragmentAddTuyenDung extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if (dataPasser != null) dataPasser.getTuyenDung(tv_congViec.getText().toString(),tv_mucLuong.getText().toString(),tv_soLuong.getText().toString(),tv_thoiHan.getText().toString(),tv_diaDiem.getText().toString());
+                if (dataPasser != null)
+                    dataPasser.getTuyenDung(tv_congViec.getText().toString(), tv_mucLuong.getText().toString(), tv_soLuong.getText().toString(), tv_thoiHan.getText().toString(), tv_diaDiem.getText().toString());
 
                 FragmentManager fragmentManager = getFragmentManager();
                 if (fragmentManager.getBackStackEntryCount() > 0) {
@@ -136,7 +136,8 @@ public class FragmentAddTuyenDung extends Fragment {
     }
 
     TuyenDung dataPasser;
-    public void passData(TuyenDung data){
+
+    public void passData(TuyenDung data) {
         this.dataPasser = data;
     }
 }

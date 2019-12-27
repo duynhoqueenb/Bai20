@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -16,7 +15,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -26,6 +24,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,16 +33,19 @@ public class MainActivity extends AppCompatActivity {
     TabLayout tabLayout;
     private FloatingActionButton buttonFab;
     private SampleFragmentPagerAdapter pagerAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         viewPager = findViewById(R.id.viewpager);
         pagerAdapter = new SampleFragmentPagerAdapter(getSupportFragmentManager(), MainActivity.this);
+        ArrayList<Fragment> lst = new ArrayList<>();
+        lst.add(PageFragment.newInstance(0));
+        lst.add(Page2Fragment.newInstance(1));
+        pagerAdapter.setFragments(lst);
         viewPager.setAdapter(pagerAdapter);
 
         tabLayout = findViewById(R.id.sliding_tabs);
@@ -66,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (position) {
                     case 0:
                         tvTab0.setTypeface(Typeface.createFromAsset(MainActivity.this.getAssets(), "fonts/helveticalmedium.ttf"));
-                        tvTab0.setTextColor(ContextCompat.getColor(MainActivity.this,R.color.colorAccent));
+                        tvTab0.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorAccent));
                         tvTab1.setTypeface(Typeface.createFromAsset(MainActivity.this.getAssets(), "fonts/helveticallight.ttf"));
                         tvTab1.setTextColor(Color.parseColor("#000000"));
                         break;
@@ -95,14 +97,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        TextView titleThongBao = findViewById(R.id.miThongBao);
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.menu_main, menu);
+//        Tit titleThongBao = findViewById(R.id.miThongBao);
 //        titleThongBao.setTypeface(Typeface.createFromAsset(this.getAssets(),"fonts/TuoiTreTV.ttf"));
-        return true;
-    }
+//        return true;
+//    }
 
     @Nullable
     @Override
@@ -123,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
 
         View viewTab2 = LayoutInflater.from(this).inflate(R.layout.custom_tab, containerRoot, false);
         ((TextView) viewTab2.findViewById(R.id.tv_title)).setText("CV Cá Nhân");
-        Typeface mytypeface = Typeface.createFromAsset(getAssets(),"fonts/helveticallight.ttf");
+        Typeface mytypeface = Typeface.createFromAsset(getAssets(), "fonts/helveticallight.ttf");
         ((TextView) viewTab2.findViewById(R.id.tv_title)).setTypeface(mytypeface);
         viewTab2.findViewById(R.id.tv_title).setSelected(true);
         Objects.requireNonNull(tabLayout.getTabAt(1)).setCustomView(viewTab2);
@@ -144,16 +146,21 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void AddFragmentTuyenDung(View view){
+    public void AddFragmentTuyenDung(View view) {
         FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction =fragmentManager.beginTransaction();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         Fragment fragment = null;
         fragment = FragmentAddTuyenDung.newInstance();
 
-        ((FragmentAddTuyenDung)fragment).passData(new TuyenDung() {
+        ((FragmentAddTuyenDung) fragment).passData(new TuyenDung() {
             @Override
             public void getTuyenDung(String congviec, String mucluong, String soluong, String thoihan, String diadiem) {
-
+                PageFragment1Model objAdd = new PageFragment1Model(congviec, diadiem, mucluong, "10", thoihan, "99", "ung vien");
+                if (pagerAdapter.getItem(0) != null) {
+                    if (pagerAdapter.getItem(0) instanceof PageFragment) {
+                        ((PageFragment) pagerAdapter.getItem(0)).addData(objAdd);
+                    }
+                }
             }
         });
         fragmentTransaction.replace(R.id.placeholder, fragment);
