@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -30,14 +32,18 @@ public class MainActivity extends AppCompatActivity {
     ViewGroup containerRoot;
     ViewPager viewPager;
     TabLayout tabLayout;
-
+    private FloatingActionButton buttonFab;
+    private SampleFragmentPagerAdapter pagerAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         viewPager = findViewById(R.id.viewpager);
-        final SampleFragmentPagerAdapter pagerAdapter = new SampleFragmentPagerAdapter(getSupportFragmentManager(), MainActivity.this);
+        pagerAdapter = new SampleFragmentPagerAdapter(getSupportFragmentManager(), MainActivity.this);
         viewPager.setAdapter(pagerAdapter);
 
         tabLayout = findViewById(R.id.sliding_tabs);
@@ -79,13 +85,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        FloatingActionButton buttonFab = findViewById(R.id.fab);
+        buttonFab = findViewById(R.id.fab);
         buttonFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AddFragmentTuyenDung(v);
+//                buttonFab.hide();
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+//        TextView titleThongBao = findViewById(R.id.miThongBao);
+//        titleThongBao.setTypeface(Typeface.createFromAsset(this.getAssets(),"fonts/TuoiTreTV.ttf"));
+        return true;
     }
 
     @Nullable
@@ -133,8 +149,18 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction =fragmentManager.beginTransaction();
         Fragment fragment = null;
         fragment = FragmentAddTuyenDung.newInstance();
+
+        ((FragmentAddTuyenDung)fragment).passData(new TuyenDung() {
+            @Override
+            public void getTuyenDung(String congviec, String mucluong, String soluong, String thoihan, String diadiem) {
+
+            }
+        });
         fragmentTransaction.replace(R.id.placeholder, fragment);
         fragmentTransaction.addToBackStack("optional tag");
         fragmentTransaction.commitAllowingStateLoss();
+
+
     }
+
 }

@@ -27,6 +27,7 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0: return PageFragment.newInstance(0);
+
             case 1: return Page2Fragment.newInstance(1);
             default: return null;
         }
@@ -68,4 +69,6 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
 //        tv.setText(tabTitles[position]);
 //        return v;
 //    }
+
+
 }

@@ -210,31 +210,46 @@
             android:layout_marginTop="18dp"
             android:textSize="18sp"/>
 
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_congviec"
             android:layout_below="@id/tv_motacv"
-            android:text="Cong viec"
-            android:layout_marginLeft="18sp"/>
+            android:hint="Cong viec"
+            android:layout_marginLeft="18sp"
+            android:inputType="text"
+            android:maxLines="1"
+            android:lines="1"
+            android:background="@null"
+            android:textSize="12sp"/>
 
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_mucluong"
             android:layout_below="@id/tv_congviec"
-            android:text="Muc luong mong muon"
+            android:hint="Muc luong mong muon"
             android:layout_marginLeft="18sp"
-            android:layout_marginTop="14dp"/>
+            android:layout_marginTop="14dp"
+            android:inputType="text"
+            android:maxLines="1"
+            android:lines="1"
+            android:background="@null"
+            android:textSize="12sp"/>
 
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_soluong"
             android:layout_below="@id/tv_mucluong"
-            android:text="So luong"
+            android:hint="So luong"
             android:layout_marginLeft="18sp"
-            android:layout_marginTop="14dp"/>
+            android:layout_marginTop="14dp"
+            android:inputType="text"
+            android:maxLines="1"
+            android:lines="1"
+            android:background="@null"
+            android:textSize="12sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -243,25 +258,36 @@
             android:layout_below="@id/tv_soluong"
             android:text="Gioi tinh"
             android:layout_marginLeft="18sp"
-            android:layout_marginTop="14dp"/>
+            android:layout_marginTop="14dp"
+            android:textSize="12sp"/>
 
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_thoihan"
             android:layout_below="@id/tv_gioitinh"
-            android:text="Thoi han"
+            android:hint="Thoi han"
             android:layout_marginLeft="18sp"
-            android:layout_marginTop="14dp"/>
+            android:layout_marginTop="14dp"
+            android:inputType="text"
+            android:maxLines="1"
+            android:lines="1"
+            android:background="@null"
+            android:textSize="12sp"/>
 
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_diadiem"
             android:layout_below="@id/tv_thoihan"
-            android:text="Dia diem lam viec"
+            android:hint="Dia diem lam viec"
             android:layout_marginLeft="18sp"
-            android:layout_marginTop="14dp"/>
+            android:layout_marginTop="14dp"
+            android:inputType="text"
+            android:maxLines="1"
+            android:lines="1"
+            android:background="@null"
+            android:textSize="12sp"/>
 
         <View
             android:layout_width="wrap_content"
@@ -301,7 +327,8 @@
             android:textSize="14sp"
             android:id="@+id/tv_noidung"
             android:layout_below="@id/tv_vitri"
-            android:layout_marginLeft="18dp"/>
+            android:layout_marginLeft="18dp"
+            android:textColor="#a4a4a4"/>
 
         <View
             android:layout_width="wrap_content"
@@ -341,7 +368,8 @@
             android:textSize="14sp"
             android:id="@+id/tv_sonamkinhnghiem"
             android:layout_below="@id/tv_kynang"
-            android:layout_marginLeft="18dp"/>
+            android:layout_marginLeft="18dp"
+            android:textColor="#a4a4a4"/>
 
         <View
             android:layout_width="wrap_content"
@@ -382,7 +410,8 @@
             android:id="@+id/tv_quyenloi_content"
             android:layout_below="@id/tv_quyenloi"
             android:layout_marginLeft="18dp"
-            android:layout_marginBottom="36dp"/>
+            android:layout_marginBottom="36dp"
+            android:textColor="#a4a4a4"/>
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -30,6 +31,13 @@ public class FragmentAddTuyenDung extends Fragment {
     private TextView icon_dangtin;
     private LinearLayout ll_dangtin;
     private ImageView imgView_logo;
+    private EditText tv_congViec;
+    private EditText tv_mucLuong;
+    private EditText tv_soLuong;
+    private EditText tv_thoiHan;
+    private EditText tv_diaDiem;
+
+
 
     public FragmentAddTuyenDung() {
         // Required empty public constructor
@@ -63,6 +71,12 @@ public class FragmentAddTuyenDung extends Fragment {
         icon_dangtin = rootView.findViewById(R.id.icon_dangtin);
         ll_dangtin = rootView.findViewById(R.id.ll_dangtin);
         imgView_logo = rootView.findViewById(R.id.view_logo);
+        tv_congViec = rootView.findViewById(R.id.tv_congviec);
+        tv_mucLuong = rootView.findViewById(R.id.tv_mucluong);
+        tv_soLuong = rootView.findViewById(R.id.tv_soluong);
+        tv_thoiHan = rootView.findViewById(R.id.tv_thoihan);
+        tv_diaDiem = rootView.findViewById(R.id.tv_diadiem);
+
         return rootView;
     }
 
@@ -94,17 +108,35 @@ public class FragmentAddTuyenDung extends Fragment {
         ll_dangtin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (dataPasser != null) dataPasser.getTuyenDung(tv_congViec.getText().toString(),tv_mucLuong.getText().toString(),tv_soLuong.getText().toString(),tv_thoiHan.getText().toString(),tv_diaDiem.getText().toString());
+
                 FragmentManager fragmentManager = getFragmentManager();
                 if (fragmentManager.getBackStackEntryCount() > 0) {
                     fragmentManager.popBackStack();
                 }
+
+
             }
         });
 
-
-        int radius = 30; // corner radius, higher value = more rounded
+        int px = convertToPx(11);
         GlideApp.with(this)
                 .load("https://html5box.com/html5lightbox/images/Evening_1024.jpg")
-                .transform(new CenterCrop(), new RoundedCorners(radius)).into(imgView_logo);
+                .transform(new CenterCrop(), new RoundedCorners(px)).into(imgView_logo);
+
+
+    }
+
+    public int convertToPx(int dp) {
+        // Get the screen's density scale
+        final float scale = getResources().getDisplayMetrics().density;
+        // Convert the dps to pixels, based on density scale
+        return (int) (dp * scale + 0.5f);
+    }
+
+    TuyenDung dataPasser;
+    public void passData(TuyenDung data){
+        this.dataPasser = data;
     }
 }

@@ -6,12 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:id="@+id/placeholder">
+    <androidx.appcompat.widget.Toolbar
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:id="@+id/toolbar"
+        android:background="@drawable/background_toolbar"
+        app:titleTextColor="#ffffff"
+        app:titleTextAppearance="@style/Toolbar.TitleText">
 
+    </androidx.appcompat.widget.Toolbar>
+    
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/sliding_tabs"
         style="@style/MyCustomTabLayout"
         android:layout_width="match_parent"
-        android:layout_height="56dp">
+        android:layout_height="56dp"
+        android:layout_below="@id/toolbar">
     </com.google.android.material.tabs.TabLayout>
 
     <TextView
