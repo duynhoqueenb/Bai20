@@ -149,6 +149,9 @@ public class FragmentAddTuyenDung extends Fragment {
                 .transform(new CenterCrop(), new RoundedCorners(px)).into(imgView_logo);
 
 
+        //tangdientich bam
+//        expandTextArea(icon_back);
+
     }
 
     public int convertToPx(int dp) {
@@ -158,9 +161,28 @@ public class FragmentAddTuyenDung extends Fragment {
         return (int) (dp * scale + 0.5f);
     }
 
+    //interface
     TuyenDung dataPasser;
 
     public void passData(TuyenDung data) {
         this.dataPasser = data;
     }
+
+    //tang dien tich
+//    private void expandTextArea(View button){
+//        final View parent = (View) button.getParent();
+//        parent.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                final Rect rect = new Rect();
+//                icon_back.getHitRect(rect);
+//                rect.top -= 100;    // increase top hit area
+//                rect.left -= 100;   // increase left hit area
+//                rect.bottom += 100; // increase bottom hit area
+//                rect.right += 100;  // increase right hit area
+//                parent.setTouchDelegate( new TouchDelegate( rect , icon_back));
+//            }
+//        });
+//    }
+
 }
