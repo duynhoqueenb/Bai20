@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,6 +30,7 @@ public class FragmentAddTuyenDung extends Fragment {
     private TextView icon_edit4;
     private TextView icon_luunhap;
     private TextView icon_dangtin;
+    private TextView icon_back;
     private LinearLayout ll_dangtin;
     private ImageView imgView_logo;
     private EditText tv_congViec;
@@ -75,7 +77,7 @@ public class FragmentAddTuyenDung extends Fragment {
         tv_soLuong = rootView.findViewById(R.id.tv_soluong);
         tv_thoiHan = rootView.findViewById(R.id.tv_thoihan);
         tv_diaDiem = rootView.findViewById(R.id.tv_diadiem);
-
+        icon_back = rootView.findViewById(R.id.icon_back);
         return rootView;
     }
 
@@ -103,19 +105,40 @@ public class FragmentAddTuyenDung extends Fragment {
         icon_edit4.setTypeface(myIconEdit);
         icon_luunhap.setTypeface(myIconEdit);
         icon_dangtin.setTypeface(myIconEdit);
+        icon_back.setTypeface(myIconEdit);
+
+        final FragmentManager fragmentManager = getFragmentManager();
+
+        icon_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                if (fragmentManager.getBackStackEntryCount() > 0) {
+//                    fragmentManager.popBackStack();
+//                }
+
+                if (dataPasser != null) {
+                    dataPasser.getTuyenDung(null, "BACK");
+                }
+            }
+        });
 
         ll_dangtin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (tv_congViec.getText().toString().length() != 0 && tv_mucLuong.getText().toString().length() != 0 && tv_soLuong.getText().toString().length() != 0) {
+                    if (dataPasser != null) {
+                        //dataPasser.getTuyenDung(tv_congViec.getText().toString(), tv_mucLuong.getText().toString(), tv_soLuong.getText().toString(), tv_thoiHan.getText().toString(), tv_diaDiem.getText().toString());
+                        PageFragment1Model obj = new PageFragment1Model(tv_congViec.getText().toString(), tv_mucLuong.getText().toString(), tv_soLuong.getText().toString(), tv_thoiHan.getText().toString(), tv_diaDiem.getText().toString(), "", "");
+                        dataPasser.getTuyenDung(obj, "DATA");
+                    }
 
-                if (dataPasser != null)
-                    dataPasser.getTuyenDung(tv_congViec.getText().toString(), tv_mucLuong.getText().toString(), tv_soLuong.getText().toString(), tv_thoiHan.getText().toString(), tv_diaDiem.getText().toString());
+                    icon_back.performClick();
 
-                FragmentManager fragmentManager = getFragmentManager();
-                if (fragmentManager.getBackStackEntryCount() > 0) {
-                    fragmentManager.popBackStack();
-                }
+//                    if (fragmentManager.getBackStackEntryCount() > 0) {
+//                        fragmentManager.popBackStack();
+//                    }
 
+                } else Toast.makeText(getContext(), "Vui long nhap lai", Toast.LENGTH_SHORT).show();
 
             }
         });

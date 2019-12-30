@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,28 +25,32 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     ViewGroup containerRoot;
     ViewPager viewPager;
     TabLayout tabLayout;
-    private FloatingActionButton buttonFab;
+    public static FloatingActionButton buttonFab;
     private SampleFragmentPagerAdapter pagerAdapter;
+    private FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        TextView icon_thongbao = findViewById(R.id.icon_thongbao);
+        icon_thongbao.setTypeface(Typeface.createFromAsset(MainActivity.this.getAssets(), "fonts/TuoiTreTV.ttf"));
+        TextView icon_navigate = findViewById(R.id.icon_navigate);
+        icon_navigate.setTypeface(Typeface.createFromAsset(MainActivity.this.getAssets(), "fonts/TuoiTreTV.ttf"));
 
         viewPager = findViewById(R.id.viewpager);
         pagerAdapter = new SampleFragmentPagerAdapter(getSupportFragmentManager(), MainActivity.this);
-        ArrayList<Fragment> lst = new ArrayList<>();
-        lst.add(PageFragment.newInstance(0));
-        lst.add(Page2Fragment.newInstance(1));
-        pagerAdapter.setFragments(lst);
+//        ArrayList<Fragment> lst = new ArrayList<>();
+//        lst.add(PageFragment.newInstance(0));
+//        lst.add(Page2Fragment.newInstance(1));
+//        pagerAdapter.setFragments(lst);
         viewPager.setAdapter(pagerAdapter);
 
         tabLayout = findViewById(R.id.sliding_tabs);
@@ -92,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AddFragmentTuyenDung(v);
-//                buttonFab.hide();
+                buttonFab.hide();
             }
         });
     }
@@ -147,27 +152,61 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void AddFragmentTuyenDung(View view) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        Fragment fragment = null;
-        fragment = FragmentAddTuyenDung.newInstance();
+        final Fragment fragment = FragmentAddTuyenDung.newInstance();
+
+//        ((FragmentAddTuyenDung) fragment).passData(new TuyenDung() {
+//            @Override
+//            public void getTuyenDung(String congviec, String mucluong, String soluong, String thoihan, String diadiem) {
+//                PageFragment1Model objAdd = new PageFragment1Model(congviec, diadiem, mucluong, "10", thoihan, "99", "ung vien");
+//                if (pagerAdapter.getItem(0) != null) {
+//                    if (pagerAdapter.getItem(0) instanceof PageFragment) {
+//                        ((PageFragment) pagerAdapter.getItem(0)).addData(objAdd);
+//                    }
+//                }
+//            }
+//        });
+
 
         ((FragmentAddTuyenDung) fragment).passData(new TuyenDung() {
             @Override
-            public void getTuyenDung(String congviec, String mucluong, String soluong, String thoihan, String diadiem) {
-                PageFragment1Model objAdd = new PageFragment1Model(congviec, diadiem, mucluong, "10", thoihan, "99", "ung vien");
-                if (pagerAdapter.getItem(0) != null) {
-                    if (pagerAdapter.getItem(0) instanceof PageFragment) {
-                        ((PageFragment) pagerAdapter.getItem(0)).addData(objAdd);
-                    }
+            public void getTuyenDung(PageFragment1Model tuyendungObj, String msg) {
+                switch (msg) {
+                    case "DATA":
+                        //call du lieu ra
+
+                        if (pagerAdapter.getItem(0) != null) {
+                            if (pagerAdapter.getItem(0) instanceof PageFragment && tuyendungObj != null) {
+                                ((PageFragment) pagerAdapter.getItem(0)).addData(tuyendungObj);
+                            }
+                        }
+
+
+                        break;
+                    case "BACK":
+                        //callclose Fragment
+                        buttonFab.show();
+                        callCloseFragment(fragment);
+                        break;
                 }
             }
         });
+
         fragmentTransaction.replace(R.id.placeholder, fragment);
-        fragmentTransaction.addToBackStack("optional tag");
+        fragmentTransaction.addToBackStack("");
         fragmentTransaction.commitAllowingStateLoss();
-
-
     }
+
+
+    void callCloseFragment(final Fragment thisFragment) {
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                getSupportFragmentManager().beginTransaction().remove(thisFragment).commitAllowingStateLoss();
+            }
+        });
+    }
+
 
 }
