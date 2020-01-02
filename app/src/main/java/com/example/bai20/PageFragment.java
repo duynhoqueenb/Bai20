@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -48,10 +50,9 @@ public class PageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_page, container, false);
+        final View view = inflater.inflate(R.layout.fragment_page, container, false);
         recyclerView = view.findViewById(R.id.listRecyclerView1);
         recyclerView.setHasFixedSize(true);
-
 
 
         layoutManager = new LinearLayoutManager(view.getContext());
@@ -59,6 +60,25 @@ public class PageFragment extends Fragment {
         listAdapter = new ListAdapter();
         recyclerView.setAdapter(listAdapter);
         listAdapter.setData(itemList);
+
+        listAdapter.setOnClick(new OnItemClickListener() {
+            @Override
+            public void onItemClick(PageFragment1Model itemModel, int position) {
+
+
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                Fragment fragment = ItemFragment.newInstance(position);
+
+                fragmentTransaction.replace(R.id.placeholder,fragment);
+                fragmentTransaction.addToBackStack("");
+                fragmentTransaction.commitAllowingStateLoss();
+
+
+
+
+            }
+        });
 
         return view;
     }
@@ -116,4 +136,6 @@ public class PageFragment extends Fragment {
             listAdapter.setData(itemList);
         }
     }
+
+
 }

@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -68,8 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-                Toast.makeText(MainActivity.this,
-                        "Selected page position: " + position, Toast.LENGTH_SHORT).show();
+                
                 switch (position) {
                     case 0:
                         tvTab0.setTypeface(Typeface.createFromAsset(MainActivity.this.getAssets(), "fonts/helveticalmedium.ttf"));
@@ -182,7 +180,6 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }
 
-
                         break;
                     case "BACK":
                         //callclose Fragment
@@ -207,6 +204,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
 
 }

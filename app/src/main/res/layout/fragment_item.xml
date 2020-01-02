@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    tools:context=".ItemFragment">
+
+    <RelativeLayout
+        android:id="@+id/rlt_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_item_logo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_margin="15dp" />
+
+        <TextView
+            android:id="@+id/tv_item_titleTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="35dp"
+            android:layout_toLeftOf="@id/tv_item_iconClose"
+            android:layout_toRightOf="@+id/img_item_logo"
+            android:text="Công Ty Cổ Phần Truyền Thông VietLive"
+            android:textColor="#000000"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/tv_item_iconClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="18dp"
+            android:text="@string/icon_close" />
+
+        <View
+            android:id="@+id/tv_item_line_1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/img_item_logo"
+            android:background="#d9d9d9" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/rlv_item_footer"
+        android:layout_below="@id/rlt_top">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="18dp"
+                android:text="Giới thiệu về công ty"
+                android:textColor="#000000"
+                android:textSize="18dp" />
+
+            <View
+                android:id="@+id/view_item_video"
+                android:layout_width="match_parent"
+                android:layout_height="226dp"
+                android:layout_below="@id/tv_item_title"
+                android:background="#464646" />
+
+            <TextView
+                android:id="@+id/tv_item_intro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_item_video"
+                android:layout_margin="18dp"
+                android:text="Số 19 Nguyễn Tiểu La, Phường 10, Quận 10, Tp. Hồ Chí Minh
+    Giới thiệu công ty Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been lorem text. Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been lorem text. Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been lorem text."
+                android:textColor="#4a4a4a"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/tv_thugon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_intro"
+                android:layout_centerHorizontal="true"
+                android:text="Thu gon"
+                android:textColor="#ed2a56"
+                android:textSize="12sp" />
+
+            <View
+                android:id="@+id/tv_item_line_2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/tv_thugon"
+                android:layout_margin="18dp"
+                android:background="#d9d9d9" />
+
+            <TextView
+                android:id="@+id/tv_item_thoihan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_line_2"
+                android:layout_marginLeft="18dp"
+                android:text="Thời hạn: 30/06/2019" />
+
+            <TextView
+                android:id="@+id/tv_item_uv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_line_2"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="18dp"
+                android:text="24" />
+
+            <TextView
+                android:id="@+id/tv_item_iconUv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_line_2"
+                android:layout_marginRight="8dp"
+                android:layout_toLeftOf="@id/tv_item_uv"
+                android:text="AA" />
+
+            <TextView
+                android:id="@+id/tv_item_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_line_2"
+                android:layout_marginRight="30dp"
+                android:layout_toLeftOf="@id/tv_item_iconUv"
+                android:text="124" />
+
+            <TextView
+                android:id="@+id/tv_item_iconView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_line_2"
+                android:layout_marginRight="8dp"
+                android:layout_toLeftOf="@id/tv_item_view"
+                android:text="AA" />
+
+            <View
+                android:id="@+id/tv_item_line_3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/tv_item_thoihan"
+                android:layout_margin="18dp"
+                android:background="#d9d9d9" />
+
+            <TextView
+                android:id="@+id/tv_item_toanthoigian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_line_3"
+                android:layout_marginLeft="18dp"
+                android:text="Toàn thời gian:" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_line_3"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="18dp"
+                android:text="15 - 18 triệu VND"
+                android:textColor="#ec2400"
+                android:textSize="14sp" />
+
+            <View
+                android:id="@+id/tv_item_line_4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/tv_item_toanthoigian"
+                android:layout_margin="18dp"
+                android:background="#d9d9d9" />
+
+            <TextView
+                android:id="@+id/tv_item_soluong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_line_4"
+                android:layout_marginLeft="18dp"
+                android:text="Số lượng:" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_line_4"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="18dp"
+                android:text="3"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
+            <View
+                android:id="@+id/tv_item_line_5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/tv_item_soluong"
+                android:layout_margin="18dp"
+                android:background="#d9d9d9" />
+
+            <TextView
+                android:id="@+id/tv_item_gioitinh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_line_5"
+                android:layout_marginLeft="18dp"
+                android:text="Giới tính:" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_line_5"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="18dp"
+                android:text="Không yêu cầu"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
+            <View
+                android:id="@+id/tv_item_line_6"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/tv_item_gioitinh"
+                android:layout_margin="18dp"
+                android:background="#d9d9d9" />
+
+            <TextView
+                android:id="@+id/tv_item_diadiem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_line_6"
+                android:layout_marginLeft="18dp"
+                android:text="Địa điểm làm việc:" />
+
+            <TextView
+                android:id="@+id/tv_item_diadiemContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_diadiem"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="18dp"
+                android:text="134 cách mạng tháng 8, phường 10, quận 3, TpHCM" />
+
+            <View
+                android:id="@+id/tv_item_line_7"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/tv_item_diadiemContent"
+                android:layout_margin="18dp"
+                android:background="#d9d9d9" />
+
+            <TextView
+                android:id="@+id/tv_item_thietke"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_line_7"
+                android:layout_marginLeft="18dp"
+                android:text="Nhân viên Thiết Kế Đồ Hoạ"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_item_thietkeContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_thietke"
+                android:layout_margin="18dp"
+                android:text="Lorem Nội dung công việc Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type ." />
+
+            <TextView
+                android:id="@+id/tv_xemthem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_thietkeContent"
+                android:layout_centerHorizontal="true"
+                android:text="Xem thêm"
+                android:textColor="#ed2a56"
+                android:textSize="12sp" />
+
+            <View
+                android:id="@+id/tv_item_line_8"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/tv_xemthem"
+                android:layout_margin="18dp"
+                android:background="#d9d9d9" />
+
+            <TextView
+                android:id="@+id/tv_item_kynang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_line_8"
+                android:layout_marginLeft="18dp"
+                android:text="Kỹ năng chuyên môn"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_item_uiux"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_kynang"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/kynangchuyenmon_background"
+                android:paddingLeft="15dp"
+                android:paddingTop="5dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="5dp"
+                android:text="UI / UX" />
+
+            <TextView
+                android:id="@+id/tv_item_weddesign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_kynang"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="8dp"
+                android:layout_toRightOf="@id/tv_item_uiux"
+                android:background="@drawable/kynangchuyenmon_background"
+                android:paddingLeft="15dp"
+                android:paddingTop="5dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="5dp"
+                android:text="Website design" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_kynang"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="8dp"
+                android:layout_toRightOf="@id/tv_item_weddesign"
+                android:background="@drawable/kynangchuyenmon_background"
+                android:paddingLeft="15dp"
+                android:paddingTop="5dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="5dp"
+                android:text="Photoshop" />
+
+            <TextView
+                android:id="@+id/tv_item_adobe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_uiux"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/kynangchuyenmon_background"
+                android:paddingLeft="15dp"
+                android:paddingTop="5dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="5dp"
+                android:text="Adobe Illustrator" />
+
+            <View
+                android:id="@+id/tv_item_line_9"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/tv_item_adobe"
+                android:layout_margin="18dp"
+                android:background="#d9d9d9" />
+
+            <TextView
+                android:id="@+id/tv_item_kinhnghiem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_line_9"
+                android:layout_marginLeft="18dp"
+                android:text="Số năm kinh nghiệm" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_line_9"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="18dp"
+                android:text="3 năm"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
+            <View
+                android:id="@+id/tv_item_line_10"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/tv_item_kinhnghiem"
+                android:layout_margin="18dp"
+                android:background="#d9d9d9" />
+
+            <TextView
+                android:id="@+id/tv_item_quyenloi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_line_10"
+                android:layout_marginLeft="18dp"
+                android:text="Quyền lợi"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_item_quyenloiContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_quyenloi"
+                android:layout_margin="18dp"
+                android:text="Lorem Nội dung công việc Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type ." />
+
+            <TextView
+                android:id="@+id/tv_xemthem2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_quyenloiContent"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:text="Xem thêm"
+                android:textColor="#ed2a56"
+                android:textSize="12sp" />
+        </RelativeLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/rlv_item_footer"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_alignParentBottom="true"
+        android:background="#49ba46"
+        android:clickable="true">
+
+        <TextView
+            android:id="@+id/tv_item_footer_ungvien"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="18dp"
+            android:text="Ứng viên (3)"
+            android:textColor="#ffffff" />
+
+        <RelativeLayout
+            android:id="@+id/rlt_footer_ungvien"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/tv_item_footer_ungvien"
+            android:background="@drawable/ungvien_background">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="1"
+                android:textColor="#ffffff" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="18dp"
+            android:text="@string/icon_next"
+            android:textColor="#ffffff" />
+
+    </RelativeLayout>
+</RelativeLayout>

@@ -46,8 +46,6 @@ public class FragmentAddTuyenDung extends Fragment {
 
     public static FragmentAddTuyenDung newInstance() {
         FragmentAddTuyenDung fragment = new FragmentAddTuyenDung();
-
-
         return fragment;
     }
 

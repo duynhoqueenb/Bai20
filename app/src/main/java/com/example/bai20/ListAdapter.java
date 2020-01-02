@@ -18,12 +18,13 @@ import java.util.List;
  */
 public class ListAdapter extends RecyclerView.Adapter {
     private List<PageFragment1Model> itemList = new ArrayList<>();
-
-    public ListAdapter(List<PageFragment1Model> itemList) {
-        setData(itemList);
-    }
+    private OnItemClickListener listener;
 
     public ListAdapter() {
+    }
+
+    public void setOnClick(OnItemClickListener listener) {
+        this.listener = listener;
     }
 
 
@@ -35,7 +36,7 @@ public class ListAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder holder, final int position) {
         //((ListViewHolder) holder).bindView(position);
         Typeface myIcon = Typeface.createFromAsset(holder.itemView.getContext().getAssets(), "fonts/TuoiTreTV.ttf");
         ((ListViewHolder) holder).mItemIconEye.setTypeface(myIcon);
@@ -50,6 +51,14 @@ public class ListAdapter extends RecyclerView.Adapter {
         ((ListViewHolder) holder).mItemThoiHan.setText(itemList.get(position).getThoihan());
         ((ListViewHolder) holder).mItemView.setText(itemList.get(position).getView());
         ((ListViewHolder) holder).mItemUngVien.setText(itemList.get(position).getUngvien());
+
+
+        ((ListViewHolder) holder).itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onItemClick(itemList.get(position), holder.getLayoutPosition());
+            }
+        });
 
 
     }
@@ -70,7 +79,7 @@ public class ListAdapter extends RecyclerView.Adapter {
     }
 
 
-    private class ListViewHolder extends RecyclerView.ViewHolder {
+    private static class ListViewHolder extends RecyclerView.ViewHolder {
 
         private TextView mItemTitle;
         private TextView mItemViTri;
@@ -95,18 +104,7 @@ public class ListAdapter extends RecyclerView.Adapter {
             mItemIconFlash = itemView.findViewById(R.id.li_iconFlash);
         }
 
-
-//        public void bindView(int position){
-//            mItemTitle.setText(DataOfPageFrg1.title[position]);
-//            mItemViTri.setText(DataOfPageFrg1.vitri[position]);
-//            mItemLuong.setText(DataOfPageFrg1.luong[position]);
-//            mItemSoluong.setText(DataOfPageFrg1.soluong[position]);
-//            mItemThoiHan.setText(DataOfPageFrg1.thoihan[position]);
-//        }
-
-//        public void onClick(View v) {
-//
-//        }
     }
+
 
 }
