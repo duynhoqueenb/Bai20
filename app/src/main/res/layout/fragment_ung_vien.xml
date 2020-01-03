@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UngVienFragment">
+
+    <RelativeLayout
+        android:id="@+id/rl_toolbar_ungvien"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/background_toolbar">
+
+        <TextView
+            android:id="@+id/tv_ungvien_iconBack"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_centerVertical="true"
+            android:text="@string/icon_back"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Ứng viên"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rl_ungvien_detail"
+        android:layout_below="@id/rl_toolbar_ungvien">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Công Ty Cổ Phần Truyền Thông VietLive"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="18dp"
+            android:id="@+id/tv_ungvien_title"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_ungvien_title"
+            android:text="Nhân Viên Thiết Kế Đồ Hoạ"
+            android:layout_marginLeft="18dp"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:layout_marginTop="5dp"
+            android:id="@+id/tv_ungvien_vitri"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="15 - 18 triệu VND"
+            android:textColor="#ec2400"
+            android:layout_below="@id/tv_ungvien_vitri"
+            android:id="@+id/tv_ungvien_luong"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="7dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Số lượng: 1 người"
+            android:layout_below="@id/tv_ungvien_luong"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="7dp"
+            android:id="@+id/tv_ungvien_soluong"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thời hạn: 30/06/2019"
+            android:layout_below="@id/tv_ungvien_luong"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="7dp"
+            android:layout_toRightOf="@id/tv_ungvien_soluong"
+            android:id="@+id/tv_ungvien_thoihan"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="18dp"
+            android:layout_below="@id/tv_ungvien_thoihan"
+            android:layout_marginTop="15dp">
+
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>
