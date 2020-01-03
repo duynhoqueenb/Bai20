@@ -1,9 +1,11 @@
 package com.example.bai20;
 
+import java.io.Serializable;
+
 /**
  * Created by Tư Lầu on 12/23/19.
  */
-public class PageFragment1Model {
+public class PageFragment1Model implements Serializable {
     private String title,vitri, luong, soluong, thoihan, view, ungvien;
 
     public PageFragment1Model(String title, String vitri, String luong, String soluong, String thoihan, String view, String ungvien) {

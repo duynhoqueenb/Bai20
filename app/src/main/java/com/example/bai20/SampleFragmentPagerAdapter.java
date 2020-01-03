@@ -35,24 +35,25 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        //return lstFragments.get(position);
-        switch (position) {
-            case 0:
-                if (fragment0 == null) {
-                    return fragment0 = PageFragment.newInstance(0);
-                } else {
-                    return fragment0;
-                }
-
-            case 1:
-                if (fragment1 == null) {
-                    return fragment1 = Page2Fragment.newInstance(1);
-                } else {
-                    return fragment1;
-                }
-            default:
-                return null;
-        }
+        return lstFragments.get(position);
+//        switch (position) {
+//            case 0:
+//                if (fragment0 == null) {
+//                    return fragment0 = PageFragment.newInstance(0);
+//
+//                } else {
+//                    return fragment0;
+//                }
+//
+//            case 1:
+//                if (fragment1 == null) {
+//                    return fragment1 = Page2Fragment.newInstance(1);
+//                } else {
+//                    return fragment1;
+//                }
+//            default:
+//                return null;
+//        }
     }
 
     @Override

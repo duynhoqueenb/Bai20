@@ -24,6 +24,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -46,10 +47,25 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager = findViewById(R.id.viewpager);
         pagerAdapter = new SampleFragmentPagerAdapter(getSupportFragmentManager(), MainActivity.this);
-//        ArrayList<Fragment> lst = new ArrayList<>();
-//        lst.add(PageFragment.newInstance(0));
-//        lst.add(Page2Fragment.newInstance(1));
-//        pagerAdapter.setFragments(lst);
+        ArrayList<Fragment> lst = new ArrayList<>();
+        PageFragment f1 = PageFragment.newInstance(0);
+        Page2Fragment f2 = Page2Fragment.newInstance(1);
+        f1.passDataPaserItem(new TuyenDung() {
+            @Override
+            public void getTuyenDung(PageFragment1Model tuyendungObj, String msg) {
+               switch (msg){
+                   case "NEXT":
+                       buttonFab.hide();
+                       break;
+                   case "BACK":
+                       buttonFab.show();
+                       break;
+               }
+            }
+        });
+        lst.add(f1);
+        lst.add(f2);
+        pagerAdapter.setFragments(lst);
         viewPager.setAdapter(pagerAdapter);
 
         tabLayout = findViewById(R.id.sliding_tabs);
@@ -98,6 +114,8 @@ public class MainActivity extends AppCompatActivity {
                 buttonFab.hide();
             }
         });
+
+
     }
 
 //    @Override
@@ -191,7 +209,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         fragmentTransaction.replace(R.id.placeholder, fragment);
-        fragmentTransaction.addToBackStack("");
         fragmentTransaction.commitAllowingStateLoss();
     }
 
@@ -205,6 +222,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
 
 
+    }
 }

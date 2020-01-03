@@ -1,6 +1,7 @@
 package com.example.bai20;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,7 @@ public class PageFragment extends Fragment {
     private RecyclerView recyclerView;
     private ListAdapter listAdapter;
     private RecyclerView.LayoutManager layoutManager;
+
 
     private static final String ARG_PAGE = "ARG_PAGE";
 
@@ -65,15 +67,34 @@ public class PageFragment extends Fragment {
             @Override
             public void onItemClick(PageFragment1Model itemModel, int position) {
 
+                PageFragment1Model objItemUngVien = new PageFragment1Model(itemModel.getTitle(), itemModel.getVitri(), itemModel.getLuong(), itemModel.getSoluong(), itemModel.getThoihan(), itemModel.getView(), itemModel.getUngvien());
 
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                Fragment fragment = ItemFragment.newInstance(position);
+                final Fragment fragment = ItemFragment.newInstance(objItemUngVien, position);
 
-                fragmentTransaction.replace(R.id.placeholder,fragment);
-                fragmentTransaction.addToBackStack("");
+                fragmentTransaction.replace(R.id.placeholder, fragment);
                 fragmentTransaction.commitAllowingStateLoss();
 
+
+                ((ItemFragment) fragment).passData2(new TuyenDung() {
+                    @Override
+                    public void getTuyenDung(PageFragment1Model tuyendungObj, String msg) {
+                        switch (msg) {
+                            case "BACK2":
+                                callCloseFragment(fragment);
+
+                                if (dataPasserItem != null) {
+                                    dataPasserItem.getTuyenDung(null, "BACK");
+                                }
+                                break;
+                        }
+                    }
+                });
+
+                if (dataPasserItem != null) {
+                    dataPasserItem.getTuyenDung(null, "NEXT");
+                }
 
 
 
@@ -137,5 +158,18 @@ public class PageFragment extends Fragment {
         }
     }
 
+    TuyenDung dataPasserItem;
 
+    void passDataPaserItem(TuyenDung data) {
+        this.dataPasserItem = data;
+    }
+
+    void callCloseFragment(final Fragment thisFragment) {
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                getFragmentManager().beginTransaction().remove(thisFragment).commitAllowingStateLoss();
+            }
+        });
+    }
 }

@@ -126,7 +126,7 @@
                 android:layout_below="@id/tv_item_line_2"
                 android:layout_marginRight="8dp"
                 android:layout_toLeftOf="@id/tv_item_uv"
-                android:text="AA" />
+                android:text="@string/icon_flash" />
 
             <TextView
                 android:id="@+id/tv_item_view"
@@ -144,7 +144,7 @@
                 android:layout_below="@id/tv_item_line_2"
                 android:layout_marginRight="8dp"
                 android:layout_toLeftOf="@id/tv_item_view"
-                android:text="AA" />
+                android:text="@string/icon_eye" />
 
             <View
                 android:id="@+id/tv_item_line_3"
@@ -170,7 +170,8 @@
                 android:layout_marginRight="18dp"
                 android:text="15 - 18 triệu VND"
                 android:textColor="#ec2400"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:id="@+id/tv_item_luong"/>
 
             <View
                 android:id="@+id/tv_item_line_4"
@@ -196,7 +197,8 @@
                 android:layout_marginRight="18dp"
                 android:text="3"
                 android:textColor="#000000"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:id="@+id/tv_item_soluongUv"/>
 
             <View
                 android:id="@+id/tv_item_line_5"
@@ -274,6 +276,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_item_thietke"
                 android:layout_margin="18dp"
+                android:maxLines="2"
                 android:text="Lorem Nội dung công việc Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type ." />
 
             <TextView
@@ -411,6 +414,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_item_quyenloi"
                 android:layout_margin="18dp"
+                android:maxLines="2"
                 android:text="Lorem Nội dung công việc Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type ." />
 
             <TextView
@@ -443,23 +447,23 @@
             android:text="Ứng viên (3)"
             android:textColor="#ffffff" />
 
-        <RelativeLayout
-            android:id="@+id/rlt_footer_ungvien"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
-            android:layout_toRightOf="@id/tv_item_footer_ungvien"
-            android:background="@drawable/ungvien_background">
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/rlt_footer_ungvien"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_toRightOf="@id/tv_item_footer_ungvien"-->
+<!--            android:background="@drawable/ungvien_background">-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:text="1"
-                android:textColor="#ffffff" />
-        </RelativeLayout>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:text="1"-->
+<!--                android:textColor="#ffffff" />-->
+<!--        </RelativeLayout>-->
 
         <TextView
             android:layout_width="wrap_content"
@@ -468,7 +472,8 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="18dp"
             android:text="@string/icon_next"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            android:id="@+id/tv_item_icon_next"/>
 
     </RelativeLayout>
 </RelativeLayout>
