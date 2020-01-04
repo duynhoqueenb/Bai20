@@ -52,7 +52,7 @@ public class ListAdapter extends RecyclerView.Adapter {
         ((ListViewHolder) holder).mItemView.setText(itemList.get(position).getView());
         ((ListViewHolder) holder).mItemUngVien.setText(itemList.get(position).getUngvien());
 
-
+        //listener item onclick
         ((ListViewHolder) holder).itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

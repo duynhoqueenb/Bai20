@@ -6,11 +6,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
@@ -24,6 +29,8 @@ public class ItemFragment extends Fragment {
     private TextView tvItemClose,tv_item_titleTop,tv_item_luong,tv_item_thoihan,tv_item_soluong,tv_item_vitri,tv_item_view,tv_item_ungvien,
             tvItemFlash,tvItemEyes,tvItemNext,tvThuGon,tvItemIntro,tvXemthem,tv_item_thietkeContent,tvXemthem2,tv_item_quyenloiContent;
     private ImageView img_item_logo;
+    private RelativeLayout rlv_item_footer;
+    private RecyclerView rv_ungvien;
 
     private PageFragment1Model loadInfo;
 
@@ -70,6 +77,10 @@ public class ItemFragment extends Fragment {
         tv_item_view = rootView.findViewById(R.id.tv_item_view);
         tv_item_ungvien = rootView.findViewById(R.id.tv_item_footer_ungvien);
         img_item_logo = rootView.findViewById(R.id.img_item_logo);
+        rlv_item_footer = rootView.findViewById(R.id.rlv_item_footer);
+
+        rv_ungvien = rootView.findViewById(R.id.rv_ungvien);
+
         return rootView;
     }
 
@@ -145,6 +156,26 @@ public class ItemFragment extends Fragment {
                 }
             }
         });
+
+
+        rlv_item_footer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                Fragment fragment = UngVienFragment.newInstance();
+
+                fragmentTransaction.replace(R.id.rl_item, fragment);
+                fragmentTransaction.commitAllowingStateLoss();
+            }
+        });
+
+        rv_ungvien.setHasTransientState(true);
+
+        UngVienListAdapter ungVienListAdapter = new UngVienListAdapter();
+        rv_ungvien.setAdapter(ungVienListAdapter);
+        ungVienListAdapter = new LinearLayoutManager();
+
     }
 
     public int convertToPx(int dp) {

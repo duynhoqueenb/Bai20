@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#ffffff"
-    tools:context=".ItemFragment">
+    tools:context=".ItemFragment"
+    android:id="@+id/rl_item">
 
     <RelativeLayout
         android:id="@+id/rlt_top"

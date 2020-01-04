@@ -62,7 +62,7 @@ public class PageFragment extends Fragment {
         listAdapter = new ListAdapter();
         recyclerView.setAdapter(listAdapter);
         listAdapter.setData(itemList);
-
+        //item onclick
         listAdapter.setOnClick(new OnItemClickListener() {
             @Override
             public void onItemClick(PageFragment1Model itemModel, int position) {
@@ -75,7 +75,6 @@ public class PageFragment extends Fragment {
 
                 fragmentTransaction.replace(R.id.placeholder, fragment);
                 fragmentTransaction.commitAllowingStateLoss();
-
 
                 ((ItemFragment) fragment).passData2(new TuyenDung() {
                     @Override
@@ -95,8 +94,6 @@ public class PageFragment extends Fragment {
                 if (dataPasserItem != null) {
                     dataPasserItem.getTuyenDung(null, "NEXT");
                 }
-
-
 
             }
         });
