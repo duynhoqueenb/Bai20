@@ -2,6 +2,7 @@ package com.example.bai20;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +15,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
@@ -26,11 +25,10 @@ public class ItemFragment extends Fragment {
     private static final String KEY = "key1";
     private static final String KEY2 = "key2";
 
-    private TextView tvItemClose,tv_item_titleTop,tv_item_luong,tv_item_thoihan,tv_item_soluong,tv_item_vitri,tv_item_view,tv_item_ungvien,
-            tvItemFlash,tvItemEyes,tvItemNext,tvThuGon,tvItemIntro,tvXemthem,tv_item_thietkeContent,tvXemthem2,tv_item_quyenloiContent;
+    private TextView tvItemClose, tv_item_titleTop, tv_item_luong, tv_item_thoihan, tv_item_soluong, tv_item_vitri, tv_item_view, tv_item_ungvien,
+            tvItemFlash, tvItemEyes, tvItemNext, tvThuGon, tvItemIntro, tvXemthem, tv_item_thietkeContent, tvXemthem2, tv_item_quyenloiContent;
     private ImageView img_item_logo;
     private RelativeLayout rlv_item_footer;
-    private RecyclerView rv_ungvien;
 
     private PageFragment1Model loadInfo;
 
@@ -43,8 +41,8 @@ public class ItemFragment extends Fragment {
         ItemFragment fragment = new ItemFragment();
 
         Bundle bundle = new Bundle();
-        bundle.putSerializable(KEY,mObj);
-        bundle.putInt(KEY2,mPosition);
+        bundle.putSerializable(KEY, mObj);
+        bundle.putInt(KEY2, mPosition);
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -58,11 +56,11 @@ public class ItemFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView =  inflater.inflate(R.layout.fragment_item, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_item, container, false);
         tvItemClose = rootView.findViewById(R.id.tv_item_iconClose);
-        tvItemEyes  = rootView.findViewById(R.id.tv_item_iconView);
-        tvItemFlash  = rootView.findViewById(R.id.tv_item_iconUv);
-        tvItemNext  = rootView.findViewById(R.id.tv_item_icon_next);
+        tvItemEyes = rootView.findViewById(R.id.tv_item_iconView);
+        tvItemFlash = rootView.findViewById(R.id.tv_item_iconUv);
+        tvItemNext = rootView.findViewById(R.id.tv_item_icon_next);
         tvThuGon = rootView.findViewById(R.id.tv_thugon);
         tvItemIntro = rootView.findViewById(R.id.tv_item_intro);
         tvXemthem = rootView.findViewById(R.id.tv_xemthem);
@@ -79,7 +77,6 @@ public class ItemFragment extends Fragment {
         img_item_logo = rootView.findViewById(R.id.img_item_logo);
         rlv_item_footer = rootView.findViewById(R.id.rlv_item_footer);
 
-        rv_ungvien = rootView.findViewById(R.id.rv_ungvien);
 
         return rootView;
     }
@@ -110,7 +107,7 @@ public class ItemFragment extends Fragment {
         tvXemthem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (tv_item_thietkeContent.getMaxLines() > 2){
+                if (tv_item_thietkeContent.getMaxLines() > 2) {
                     tv_item_thietkeContent.setMaxLines(2);
                     tvXemthem.setText("Xem them");
                 } else {
@@ -123,7 +120,7 @@ public class ItemFragment extends Fragment {
         tvXemthem2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (tv_item_quyenloiContent.getMaxLines() > 2){
+                if (tv_item_quyenloiContent.getMaxLines() > 2) {
                     tv_item_quyenloiContent.setMaxLines(2);
                     tvXemthem2.setText("Xem them");
                 } else {
@@ -134,6 +131,7 @@ public class ItemFragment extends Fragment {
         });
 
         loadInfo = (PageFragment1Model) getArguments().getSerializable(KEY);
+        final Integer loadInfoPosition = getArguments().getInt(KEY2);
 
         tv_item_titleTop.setText(loadInfo.getTitle());
         tv_item_vitri.setText(loadInfo.getVitri());
@@ -161,20 +159,26 @@ public class ItemFragment extends Fragment {
         rlv_item_footer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                PageFragment1Model mObjectUngVien = new PageFragment1Model(loadInfo.getTitle(), loadInfo.getVitri(), loadInfo.getLuong(), loadInfo.getSoluong(), loadInfo.getThoihan(), loadInfo.getView(), loadInfo.getUngvien());
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                Fragment fragment = UngVienFragment.newInstance();
+                final Fragment fragment = UngVienFragment.newInstance(mObjectUngVien, loadInfoPosition);
 
                 fragmentTransaction.replace(R.id.rl_item, fragment);
                 fragmentTransaction.commitAllowingStateLoss();
+
+                ((UngVienFragment) fragment).passDataUVDetail(new TuyenDung() {
+                    @Override
+                    public void getTuyenDung(PageFragment1Model tuyendungObj, String msg) {
+                        switch (msg) {
+                            case "BACKUVDETAIL":
+                                callCloseFragment(fragment);
+                                break;
+                        }
+                    }
+                });
             }
         });
-
-        rv_ungvien.setHasTransientState(true);
-
-        UngVienListAdapter ungVienListAdapter = new UngVienListAdapter();
-        rv_ungvien.setAdapter(ungVienListAdapter);
-        ungVienListAdapter = new LinearLayoutManager();
 
     }
 
@@ -189,5 +193,14 @@ public class ItemFragment extends Fragment {
 
     public void passData2(TuyenDung data) {
         this.dataItemPasser2 = data;
+    }
+
+    void callCloseFragment(final Fragment thisFragment) {
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                getFragmentManager().beginTransaction().remove(thisFragment).commitAllowingStateLoss();
+            }
+        });
     }
 }

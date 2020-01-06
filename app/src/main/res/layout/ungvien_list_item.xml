@@ -1,7 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rv_itemUngVien"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/background_itemview1"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/itemUV_vitri"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thiết kế 2D"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/itemUV_ten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/itemUV_vitri"
+        android:text="Nguyễn Bảo Trân"
+        android:textColor="#000000"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/itemUV_iconUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/itemUV_ten"
+        android:text="@string/icon_user"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/itemUV_gioitinh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/itemUV_ten"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/itemUV_iconUser"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/itemUV_tuoi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/itemUV_ten"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/itemUV_gioitinh"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/itemUV_diadiem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/itemUV_ten"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/itemUV_tuoi"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/itemUV_iconTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/itemUV_iconUser"
+        android:text="@string/icon_ex"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/itemUV_textKinhnghiem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/itemUV_iconUser"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/itemUV_iconTime"
+        android:text="Kinh nghiệm: "
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/itemUV_kinhnghiem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/itemUV_iconUser"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/itemUV_textKinhnghiem"
+        android:textColor="#ec2400"
+        android:textSize="12sp" />
+
+    <RelativeLayout
+        android:id="@+id/rl_uv_lichhen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/itemUV_kinhnghiem"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/bg_lichhen"
+        android:paddingLeft="15dp"
+        android:paddingTop="7dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="7dp">
+
+        <TextView
+            android:id="@+id/tv_uv_lichhen_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/icon_flash" />
+
+        <TextView
+            android:id="@+id/tv_uv_lichhen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/tv_uv_lichhen_icon"
+            android:text="Lịch hẹn"
+            android:textColor="#ffffff"
+            android:textSize="11sp" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/itemUV_kinhnghiem"
+        android:layout_marginRight="8dp"
+        android:layout_toLeftOf="@id/rl_uv_lichhen"
+        android:background="@drawable/bg_boqua"
+        android:paddingLeft="15dp"
+        android:paddingTop="7dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="7dp"
+        android:text="Bỏ qua" />
+
 
 </RelativeLayout>

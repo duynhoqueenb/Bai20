@@ -3,14 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UngVienFragment"
-    android:background="#ffffff">
+    android:background="#ffffff"
+    tools:context=".UngVienFragment">
 
     <RelativeLayout
         android:id="@+id/rl_toolbar_ungvien"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:background="@drawable/background_toolbar">
+        android:background="@drawable/background_toolbar"
+        android:clickable="true">
 
         <TextView
             android:id="@+id/tv_ungvien_iconBack"
@@ -88,109 +89,108 @@
             android:text="Thời hạn: 30/06/2019" />
 
         <RelativeLayout
+            android:id="@+id/tv_ungvien_detail_footer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_ungvien_thoihan"
             android:layout_marginTop="15dp"
-            android:padding="8dp"
-            android:id="@+id/tv_ungvien_detail_footer"
-            android:background="@drawable/bg_ungvien_item_top">
+            android:background="@drawable/bg_ungvien_item_top"
+            android:padding="8dp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/icon_eye"
                 android:id="@+id/tv_uv_iconeye"
-                android:layout_marginLeft="10dp"/>
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="702"
-                android:layout_toRightOf="@id/tv_uv_iconeye"
+                android:layout_marginLeft="10dp"
+                android:text="@string/icon_eye" />
+
+            <TextView
                 android:id="@+id/tv_uv_view"
-                android:layout_marginLeft="5dp"/>
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/tv_uv_view"
-                android:text="@string/icon_flash"
-                android:id="@+id/tv_uv_iconflash"
-                android:layout_marginLeft="30dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/tv_uv_iconflash"
                 android:layout_marginLeft="5dp"
-                android:text="24 ứng viên"/>
+                android:layout_toRightOf="@id/tv_uv_iconeye"
+                android:text="702" />
+
+            <TextView
+                android:id="@+id/tv_uv_iconflash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@id/tv_uv_view"
+                android:text="@string/icon_flash" />
+
+            <TextView
+                android:id="@+id/tv_uv_luotUV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/tv_uv_iconflash"
+                android:text="24 ứng viên" />
         </RelativeLayout>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#c9c9c9"
-            android:layout_below="@id/tv_ungvien_detail_footer"/>
+            android:layout_below="@id/tv_ungvien_detail_footer"
+            android:background="#c9c9c9" />
     </RelativeLayout>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mời PV (3)"
-        android:paddingRight="15dp"
-        android:paddingLeft="15dp"
-        android:paddingBottom="8dp"
-        android:paddingTop="8dp"
-        android:layout_below="@id/rl_ungvien_detail"
-        android:background="@drawable/tag_tuyendung"
-        android:layout_marginTop="14dp"
-        android:layout_marginLeft="18dp"
         android:id="@+id/tv_uv_tagmoiPV"
-        android:textSize="11dp"/>
-
-    <TextView
-        android:textSize="11dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lịch hẹn (5)"
-        android:paddingRight="15dp"
-        android:paddingLeft="15dp"
-        android:paddingBottom="8dp"
-        android:paddingTop="8dp"
         android:layout_below="@id/rl_ungvien_detail"
-        android:background="@drawable/tag_tuyendung"
+        android:layout_marginLeft="18dp"
         android:layout_marginTop="14dp"
+        android:background="@drawable/tag_tuyendung"
+        android:paddingLeft="15dp"
+        android:paddingTop="8dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="8dp"
+        android:text="Mời PV (3)"
+        android:textSize="11dp" />
+
+    <TextView
+        android:id="@+id/tv_uv_tagLichhen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_ungvien_detail"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="14dp"
         android:layout_toRightOf="@id/tv_uv_tagmoiPV"
-        android:id="@+id/tv_uv_tagLichhen"/>
+        android:background="@drawable/tag_tuyendung"
+        android:paddingLeft="15dp"
+        android:paddingTop="8dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="8dp"
+        android:text="Lịch hẹn (5)"
+        android:textSize="11dp" />
 
     <TextView
-        android:textSize="11dp"
+        android:id="@+id/tv_uv_tagKetqua"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kết Quả (3)"
-        android:paddingRight="15dp"
-        android:paddingLeft="15dp"
-        android:paddingBottom="8dp"
-        android:paddingTop="8dp"
         android:layout_below="@id/rl_ungvien_detail"
-        android:background="@drawable/tag_tuyendung"
-        android:layout_marginTop="14dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="14dp"
         android:layout_toRightOf="@id/tv_uv_tagLichhen"
-        android:id="@+id/tv_uv_tagKetqua"
-        android:layout_marginBottom="14dp"/>
+        android:background="@drawable/tag_tuyendung"
+        android:paddingLeft="15dp"
+        android:paddingTop="8dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="8dp"
+        android:text="Kết Quả (3)"
+        android:textSize="11dp" />
 
-    <RelativeLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_ungvien"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_uv_tagKetqua">
+        android:layout_height="match_parent"
+        android:layout_below="@id/tv_uv_tagKetqua"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/rv_ungvien">
-
-        </androidx.recyclerview.widget.RecyclerView>
-    </RelativeLayout>
+    </androidx.recyclerview.widget.RecyclerView>
 </RelativeLayout>

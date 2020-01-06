@@ -8,7 +8,8 @@ public class UngVienModel {
     private String ten;
     private String gioitinh;
     private String tuoi;
-
+    private String diadiem;
+    private String kinhnghiem;
     public String getVitri() {
         return vitri;
     }
@@ -34,7 +35,7 @@ public class UngVienModel {
     }
 
 
-    private String diadiem;
+
 
     public void setVitri(String vitri) {
         this.vitri = vitri;
@@ -60,7 +61,7 @@ public class UngVienModel {
         this.kinhnghiem = kinhnghiem;
     }
 
-    private String kinhnghiem;
+
     public UngVienModel(String vitri, String ten, String gioitinh, String tuoi, String diadiem, String kinhnghiem) {
         this.vitri = vitri;
         this.ten = ten;
