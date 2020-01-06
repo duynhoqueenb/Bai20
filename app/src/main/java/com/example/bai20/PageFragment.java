@@ -108,39 +108,10 @@ public class PageFragment extends Fragment {
     }
 
     public void createItemListData() {
-
         for (int i = 0; i <= 10; i++) {
             PageFragment1Model datalist = new PageFragment1Model("Cong ty CP VietLive " + i, "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
             itemList.add(datalist);
         }
-
-//        PageFragment1Model datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
-//        itemList.add(datalist);
-//
-//        datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
-//        itemList.add(datalist);
-//
-//        datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
-//        itemList.add(datalist);
-//
-//        datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
-//        itemList.add(datalist);
-//
-//        datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
-//        itemList.add(datalist);
-//
-//        datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
-//        itemList.add(datalist);
-//
-//        datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
-//        itemList.add(datalist);
-//
-//        datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
-//        itemList.add(datalist);
-//
-//        datalist = new PageFragment1Model("Cong ty CP VietLive", "Nhan vien thiet ke", "15-18 trieu", "So luong: 5 nguoi", "Thoi han: 30/12/2019", "700", "Ung vien (3)");
-//        itemList.add(datalist);
-
     }
 
     void addData(PageFragment1Model objAdd) {

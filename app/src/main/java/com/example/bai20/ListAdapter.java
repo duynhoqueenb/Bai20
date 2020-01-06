@@ -5,7 +5,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -60,7 +62,13 @@ public class ListAdapter extends RecyclerView.Adapter {
             }
         });
 
-
+        //listener ungvien onclick
+        ((ListViewHolder) holder).mRlUngVien.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(holder.itemView.getContext(), "OK", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -90,6 +98,7 @@ public class ListAdapter extends RecyclerView.Adapter {
         private TextView mItemUngVien;
         private TextView mItemIconEye;
         private TextView mItemIconFlash;
+        private RelativeLayout mRlUngVien;
 
         public ListViewHolder(View itemView) {
             super(itemView);
@@ -102,6 +111,7 @@ public class ListAdapter extends RecyclerView.Adapter {
             mItemUngVien = itemView.findViewById(R.id.li_tvIconFlash);
             mItemIconEye = itemView.findViewById(R.id.li_icon_eye);
             mItemIconFlash = itemView.findViewById(R.id.li_iconFlash);
+            mRlUngVien = itemView.findViewById(R.id.rl_li_ungvien);
         }
 
     }

@@ -91,7 +91,8 @@
         android:layout_alignParentBottom="true"
         android:background="@drawable/background_itemview1_ft2"
         android:paddingLeft="21dp"
-        android:paddingRight="21dp">
+        android:paddingRight="21dp"
+        android:id="@+id/rl_li_ungvien">
 
         <TextView
             android:id="@+id/li_iconFlash"
