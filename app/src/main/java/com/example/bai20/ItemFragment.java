@@ -3,7 +3,6 @@ package com.example.bai20;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -163,7 +162,7 @@ public class ItemFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 PageFragment1Model mObjectUngVien = new PageFragment1Model(loadInfo.getTitle(), loadInfo.getVitri(), loadInfo.getLuong(), loadInfo.getSoluong(), loadInfo.getThoihan(), loadInfo.getView(), loadInfo.getUngvien());
-                parent.callUngVienFragment(mObjectUngVien, loadInfoPosition);
+                parent.callUngVienFragment(mObjectUngVien, loadInfoPosition,"ITEM");
             }
         });
 

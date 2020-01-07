@@ -1,7 +1,6 @@
 package com.example.bai20;
 
 import android.graphics.Typeface;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,12 +78,12 @@ public class ListAdapter extends RecyclerView.Adapter {
     }
 
     public void setData(List<PageFragment1Model> itemList) {
-        Log.e("A", "55");
+
         if (itemList != null) {
-            Log.e("A", "66");
+
             this.itemList = itemList;
             notifyDataSetChanged();
-            Log.e("A>>" + getItemCount(), this.itemList.toString());
+//            Log.e("A>>" + getItemCount(), this.itemList.toString());
         }
     }
 

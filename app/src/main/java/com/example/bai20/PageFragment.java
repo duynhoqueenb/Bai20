@@ -96,7 +96,10 @@ public class PageFragment extends Fragment {
 
             @Override
             public void onUngVienClick(PageFragment1Model itemModel, int position) {
-                callUngVienFragment(itemModel, position);
+                callUngVienFragment(itemModel, position,"UNGVIEN");
+                if (dataPasserItem != null) {
+                    dataPasserItem.getTuyenDung(null, "NEXT");
+                }
             }
         });
 
@@ -143,24 +146,42 @@ public class PageFragment extends Fragment {
         });
     }
 
-    void callUngVienFragment(PageFragment1Model mObjectUngVien, int loadInfoPosition) {
+    void callUngVienFragment(PageFragment1Model mObjectUngVien, int loadInfoPosition, String key) {
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         final UngVienFragment fragment = UngVienFragment.newInstance(mObjectUngVien, loadInfoPosition);
 
         fragmentTransaction.add(R.id.placeholder, fragment);
         fragmentTransaction.commitAllowingStateLoss();
+        switch (key) {
+            case "UNGVIEN":
+                fragment.passDataUVDetail(new TuyenDung() {
+                    @Override
+                    public void getTuyenDung(PageFragment1Model tuyendungObj, String msg) {
+                        switch (msg) {
+                            case "BACKUVDETAIL":
+                                callCloseFragment(fragment);
+                                if (dataPasserItem != null) {
+                                    dataPasserItem.getTuyenDung(null, "BACK");
+                                }
+                                break;
+                        }
+                    }
+                });
+                break;
+            case "ITEM":
+                fragment.passDataUVDetail(new TuyenDung() {
+                    @Override
+                    public void getTuyenDung(PageFragment1Model tuyendungObj, String msg) {
+                        switch (msg) {
+                            case "BACKUVDETAIL":
+                                callCloseFragment(fragment);
+                                break;
+                        }
+                    }
+                });
+                break;
+        }
 
-        fragment.passDataUVDetail(new TuyenDung() {
-            @Override
-            public void getTuyenDung(PageFragment1Model tuyendungObj, String msg) {
-                switch (msg) {
-                    case "BACKUVDETAIL":
-                        callCloseFragment(fragment);
-                        break;
-
-                }
-            }
-        });
     }
 }
