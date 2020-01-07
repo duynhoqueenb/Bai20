@@ -5,4 +5,6 @@ package com.example.bai20;
  */
 public interface OnItemClickListener {
     public void onItemClick(PageFragment1Model itemModel, int position);
+
+    public void onUngVienClick(PageFragment1Model itemModel, int position);
 }

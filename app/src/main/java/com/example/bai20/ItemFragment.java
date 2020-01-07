@@ -3,6 +3,7 @@ package com.example.bai20;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +14,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
@@ -31,6 +30,7 @@ public class ItemFragment extends Fragment {
     private RelativeLayout rlv_item_footer;
 
     private PageFragment1Model loadInfo;
+    PageFragment parent;
 
     public ItemFragment() {
         // Required empty public constructor
@@ -45,6 +45,10 @@ public class ItemFragment extends Fragment {
         bundle.putInt(KEY2, mPosition);
         fragment.setArguments(bundle);
         return fragment;
+    }
+
+    void setParent(PageFragment pageFragment) {
+        this.parent = pageFragment;
     }
 
     @Override
@@ -76,7 +80,6 @@ public class ItemFragment extends Fragment {
         tv_item_ungvien = rootView.findViewById(R.id.tv_item_footer_ungvien);
         img_item_logo = rootView.findViewById(R.id.img_item_logo);
         rlv_item_footer = rootView.findViewById(R.id.rlv_item_footer);
-
 
         return rootView;
     }
@@ -131,7 +134,7 @@ public class ItemFragment extends Fragment {
         });
 
         loadInfo = (PageFragment1Model) getArguments().getSerializable(KEY);
-        final Integer loadInfoPosition = getArguments().getInt(KEY2);
+        final int loadInfoPosition = getArguments().getInt(KEY2);
 
         tv_item_titleTop.setText(loadInfo.getTitle());
         tv_item_vitri.setText(loadInfo.getVitri());
@@ -160,23 +163,7 @@ public class ItemFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 PageFragment1Model mObjectUngVien = new PageFragment1Model(loadInfo.getTitle(), loadInfo.getVitri(), loadInfo.getLuong(), loadInfo.getSoluong(), loadInfo.getThoihan(), loadInfo.getView(), loadInfo.getUngvien());
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                final Fragment fragment = UngVienFragment.newInstance(mObjectUngVien, loadInfoPosition);
-
-                fragmentTransaction.replace(R.id.rl_item, fragment);
-                fragmentTransaction.commitAllowingStateLoss();
-
-                ((UngVienFragment) fragment).passDataUVDetail(new TuyenDung() {
-                    @Override
-                    public void getTuyenDung(PageFragment1Model tuyendungObj, String msg) {
-                        switch (msg) {
-                            case "BACKUVDETAIL":
-                                callCloseFragment(fragment);
-                                break;
-                        }
-                    }
-                });
+                parent.callUngVienFragment(mObjectUngVien, loadInfoPosition);
             }
         });
 

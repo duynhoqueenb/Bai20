@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,12 +21,15 @@ public class ListAdapter extends RecyclerView.Adapter {
     private List<PageFragment1Model> itemList = new ArrayList<>();
     private OnItemClickListener listener;
 
+
     public ListAdapter() {
     }
 
     public void setOnClick(OnItemClickListener listener) {
         this.listener = listener;
     }
+
+
 
 
     @NonNull
@@ -66,7 +68,7 @@ public class ListAdapter extends RecyclerView.Adapter {
         ((ListViewHolder) holder).mRlUngVien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(holder.itemView.getContext(), "OK", Toast.LENGTH_SHORT).show();
+                listener.onUngVienClick(itemList.get(position),holder.getLayoutPosition());
             }
         });
     }

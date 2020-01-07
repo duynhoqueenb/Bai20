@@ -69,14 +69,11 @@ public class PageFragment extends Fragment {
 
                 PageFragment1Model objItemUngVien = new PageFragment1Model(itemModel.getTitle(), itemModel.getVitri(), itemModel.getLuong(), itemModel.getSoluong(), itemModel.getThoihan(), itemModel.getView(), itemModel.getUngvien());
 
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                final Fragment fragment = ItemFragment.newInstance(objItemUngVien, position);
+                final ItemFragment fragment = ItemFragment.newInstance(objItemUngVien, position);
+                fragment.setParent(PageFragment.this);
+                getFragmentManager().beginTransaction().add(R.id.placeholder, fragment).commitAllowingStateLoss();
 
-                fragmentTransaction.replace(R.id.placeholder, fragment);
-                fragmentTransaction.commitAllowingStateLoss();
-
-                ((ItemFragment) fragment).passData2(new TuyenDung() {
+                fragment.passData2(new TuyenDung() {
                     @Override
                     public void getTuyenDung(PageFragment1Model tuyendungObj, String msg) {
                         switch (msg) {
@@ -95,6 +92,11 @@ public class PageFragment extends Fragment {
                     dataPasserItem.getTuyenDung(null, "NEXT");
                 }
 
+            }
+
+            @Override
+            public void onUngVienClick(PageFragment1Model itemModel, int position) {
+                callUngVienFragment(itemModel, position);
             }
         });
 
@@ -137,6 +139,27 @@ public class PageFragment extends Fragment {
             @Override
             public void run() {
                 getFragmentManager().beginTransaction().remove(thisFragment).commitAllowingStateLoss();
+            }
+        });
+    }
+
+    void callUngVienFragment(PageFragment1Model mObjectUngVien, int loadInfoPosition) {
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        final UngVienFragment fragment = UngVienFragment.newInstance(mObjectUngVien, loadInfoPosition);
+
+        fragmentTransaction.add(R.id.placeholder, fragment);
+        fragmentTransaction.commitAllowingStateLoss();
+
+        fragment.passDataUVDetail(new TuyenDung() {
+            @Override
+            public void getTuyenDung(PageFragment1Model tuyendungObj, String msg) {
+                switch (msg) {
+                    case "BACKUVDETAIL":
+                        callCloseFragment(fragment);
+                        break;
+
+                }
             }
         });
     }
