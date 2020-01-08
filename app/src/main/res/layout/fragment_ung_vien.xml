@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
-    tools:context=".UngVienFragment">
+    tools:context=".UngVienFragment"
+    android:clickable="true">
 
     <RelativeLayout
         android:id="@+id/rl_toolbar_ungvien"
@@ -37,7 +38,8 @@
         android:id="@+id/rl_ungvien_detail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/rl_toolbar_ungvien">
+        android:layout_below="@id/rl_toolbar_ungvien"
+        android:clickable="true">
 
         <TextView
             android:id="@+id/tv_ungvien_title"
@@ -102,7 +104,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="@string/icon_eye" />
+                android:text="@string/icon_eye"
+                android:layout_marginTop="2dp"/>
 
             <TextView
                 android:id="@+id/tv_uv_view"
@@ -118,7 +121,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_toRightOf="@id/tv_uv_view"
-                android:text="@string/icon_flash" />
+                android:text="@string/icon_flash"
+                android:layout_marginTop="3dp"/>
 
             <TextView
                 android:id="@+id/tv_uv_luotUV"
@@ -189,8 +193,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/tv_uv_tagKetqua"
-        android:paddingLeft="18dp"
-        android:paddingRight="18dp">
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:clipToPadding="false">
 
     </androidx.recyclerview.widget.RecyclerView>
 </RelativeLayout>

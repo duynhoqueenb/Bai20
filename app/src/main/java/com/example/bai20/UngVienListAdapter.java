@@ -44,6 +44,7 @@ public class UngVienListAdapter extends RecyclerView.Adapter {
         Typeface myIcon = Typeface.createFromAsset(holder.itemView.getContext().getAssets(),"fonts/TuoiTreTV.ttf");
         ((UngVienListViewHolder)holder).iconTime.setTypeface(myIcon);
         ((UngVienListViewHolder)holder).iconUser.setTypeface(myIcon);
+        ((UngVienListViewHolder)holder).iconFlash.setTypeface(myIcon);
     }
 
     @Override
@@ -59,7 +60,7 @@ public class UngVienListAdapter extends RecyclerView.Adapter {
         private TextView diadiem;
         private TextView kinhnghiem;
         private TextView iconUser;
-        private TextView iconTime;
+        private TextView iconTime,iconFlash;
         public UngVienListViewHolder(@NonNull View itemView) {
             super(itemView);
             vitri = itemView.findViewById(R.id.itemUV_vitri);
@@ -70,6 +71,7 @@ public class UngVienListAdapter extends RecyclerView.Adapter {
             kinhnghiem = itemView.findViewById(R.id.itemUV_kinhnghiem);
             iconTime = itemView.findViewById(R.id.itemUV_iconTime);
             iconUser = itemView.findViewById(R.id.itemUV_iconUser);
+            iconFlash = itemView.findViewById(R.id.tv_uv_lichhen_icon);
         }
     }
 }

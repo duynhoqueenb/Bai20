@@ -110,7 +110,7 @@ public class UngVienFragment extends Fragment {
 
     TuyenDung dataUngVienDetail;
 
-    public void passDataUVDetail(TuyenDung data) {
+    public void   passDataUVDetail(TuyenDung data) {
         this.dataUngVienDetail = data;
     }
 }

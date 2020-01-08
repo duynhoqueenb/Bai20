@@ -30,7 +30,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/itemUV_ten"
         android:text="@string/icon_user"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        android:layout_marginTop="7dp"/>
 
     <TextView
         android:id="@+id/itemUV_gioitinh"
@@ -39,7 +40,8 @@
         android:layout_below="@id/itemUV_ten"
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/itemUV_iconUser"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        android:layout_marginTop="5dp"/>
 
     <TextView
         android:id="@+id/itemUV_tuoi"
@@ -48,7 +50,8 @@
         android:layout_below="@id/itemUV_ten"
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/itemUV_gioitinh"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        android:layout_marginTop="5dp"/>
 
     <TextView
         android:id="@+id/itemUV_diadiem"
@@ -57,7 +60,8 @@
         android:layout_below="@id/itemUV_ten"
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/itemUV_tuoi"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        android:layout_marginTop="5dp"/>
 
     <TextView
         android:id="@+id/itemUV_iconTime"
@@ -65,7 +69,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/itemUV_iconUser"
         android:text="@string/icon_ex"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        android:layout_marginTop="7dp"/>
 
     <TextView
         android:id="@+id/itemUV_textKinhnghiem"
@@ -75,7 +80,8 @@
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/itemUV_iconTime"
         android:text="Kinh nghiệm: "
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        android:layout_marginTop="5dp"/>
 
     <TextView
         android:id="@+id/itemUV_kinhnghiem"
@@ -85,7 +91,8 @@
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/itemUV_textKinhnghiem"
         android:textColor="#ec2400"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        android:layout_marginTop="5dp"/>
 
     <RelativeLayout
         android:id="@+id/rl_uv_lichhen"
@@ -95,16 +102,18 @@
         android:layout_alignParentRight="true"
         android:background="@drawable/bg_lichhen"
         android:paddingLeft="15dp"
-        android:paddingTop="7dp"
+        android:paddingTop="5dp"
         android:paddingRight="15dp"
-        android:paddingBottom="7dp">
+        android:paddingBottom="5dp"
+        android:layout_marginTop="5dp">
 
         <TextView
             android:id="@+id/tv_uv_lichhen_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:text="@string/icon_flash" />
+            android:text="@string/icon_flash"
+            android:textColor="#ffffff"/>
 
         <TextView
             android:id="@+id/tv_uv_lichhen"
@@ -128,10 +137,12 @@
         android:layout_toLeftOf="@id/rl_uv_lichhen"
         android:background="@drawable/bg_boqua"
         android:paddingLeft="15dp"
-        android:paddingTop="7dp"
+        android:paddingTop="5dp"
         android:paddingRight="15dp"
-        android:paddingBottom="7dp"
-        android:text="Bỏ qua" />
+        android:paddingBottom="5dp"
+        android:text="Bỏ qua"
+        android:textSize="11sp"
+        android:layout_marginTop="5dp"/>
 
 
 </RelativeLayout>
