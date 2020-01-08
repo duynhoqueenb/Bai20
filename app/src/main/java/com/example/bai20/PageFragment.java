@@ -71,7 +71,7 @@ public class PageFragment extends Fragment {
 
                 final ItemFragment fragment = ItemFragment.newInstance(objItemUngVien, position);
                 fragment.setParent(PageFragment.this);
-                getFragmentManager().beginTransaction().add(R.id.placeholder, fragment).commitAllowingStateLoss();
+                getFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_in_left,R.anim.slide_out_right,R.anim.pop_enter,R.anim.pop_exit).add(R.id.placeholder, fragment).commitAllowingStateLoss();
 
                 fragment.passData2(new TuyenDung() {
                     @Override
@@ -149,6 +149,7 @@ public class PageFragment extends Fragment {
     void callUngVienFragment(PageFragment1Model mObjectUngVien, int loadInfoPosition, String key) {
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.setCustomAnimations(R.anim.slide_in_left,R.anim.slide_out_right);
         final UngVienFragment fragment = UngVienFragment.newInstance(mObjectUngVien, loadInfoPosition);
 
         fragmentTransaction.add(R.id.placeholder, fragment);
