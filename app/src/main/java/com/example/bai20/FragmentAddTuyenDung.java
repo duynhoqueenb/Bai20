@@ -38,7 +38,7 @@ public class FragmentAddTuyenDung extends Fragment {
     private EditText tv_soLuong;
     private EditText tv_thoiHan;
     private EditText tv_diaDiem;
-
+    private View rootView;
 
     public FragmentAddTuyenDung() {
         // Required empty public constructor
@@ -59,7 +59,7 @@ public class FragmentAddTuyenDung extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_add_tuyen_dung, container, false);
+        rootView = inflater.inflate(R.layout.fragment_add_tuyen_dung, container, false);
         tv_thugon = rootView.findViewById(R.id.tv_thugon);
         tv_gt_content = rootView.findViewById(R.id.tv_gt_content);
         icon_edit = rootView.findViewById(R.id.icon_edit);
@@ -76,6 +76,8 @@ public class FragmentAddTuyenDung extends Fragment {
         tv_thoiHan = rootView.findViewById(R.id.tv_thoihan);
         tv_diaDiem = rootView.findViewById(R.id.tv_diadiem);
         icon_back = rootView.findViewById(R.id.icon_back);
+
+        MainActivity.callAnimationIn(rootView, getContext(), R.anim.slide_in_left, null);
         return rootView;
     }
 
@@ -110,13 +112,14 @@ public class FragmentAddTuyenDung extends Fragment {
         icon_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if (fragmentManager.getBackStackEntryCount() > 0) {
-//                    fragmentManager.popBackStack();
-//                }
-
-                if (dataPasser != null) {
-                    dataPasser.getTuyenDung(null, "BACK");
-                }
+                MainActivity.callAnimationOut(rootView, getContext(), R.anim.slide_out_right, new AnimationInf() {
+                    @Override
+                    public void afterAnim() {
+                        if (dataPasser != null) {
+                            dataPasser.getTuyenDung(null, "BACK");
+                        }
+                    }
+                });
             }
         });
 

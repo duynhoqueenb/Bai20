@@ -63,12 +63,12 @@ public class UngVienFragment extends Fragment {
         luotview = view.findViewById(R.id.tv_uv_view);
         luotungvien = view.findViewById(R.id.tv_uv_luotUV);
 
-
+        MainActivity.callAnimationIn(view,getContext(),R.anim.slide_in_left,null);
         return view;
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         creatDataUngVien();
@@ -94,9 +94,14 @@ public class UngVienFragment extends Fragment {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (dataUngVienDetail != null) {
-                    dataUngVienDetail.getTuyenDung(null, "BACKUVDETAIL");
-                }
+                MainActivity.callAnimationOut(view, getContext(), R.anim.slide_out_right, new AnimationInf() {
+                    @Override
+                    public void afterAnim() {
+                        if (dataUngVienDetail != null) {
+                            dataUngVienDetail.getTuyenDung(null, "BACKUVDETAIL");
+                        }
+                    }
+                });
             }
         });
     }

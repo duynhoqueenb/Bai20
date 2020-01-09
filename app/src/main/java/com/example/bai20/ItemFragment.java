@@ -31,6 +31,8 @@ public class ItemFragment extends Fragment {
     private PageFragment1Model loadInfo;
     PageFragment parent;
 
+    private View rootView;
+
     public ItemFragment() {
         // Required empty public constructor
     }
@@ -59,7 +61,7 @@ public class ItemFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_item, container, false);
+        rootView = inflater.inflate(R.layout.fragment_item, container, false);
         tvItemClose = rootView.findViewById(R.id.tv_item_iconClose);
         tvItemEyes = rootView.findViewById(R.id.tv_item_iconView);
         tvItemFlash = rootView.findViewById(R.id.tv_item_iconUv);
@@ -79,7 +81,7 @@ public class ItemFragment extends Fragment {
         tv_item_ungvien = rootView.findViewById(R.id.tv_item_footer_ungvien);
         img_item_logo = rootView.findViewById(R.id.img_item_logo);
         rlv_item_footer = rootView.findViewById(R.id.rlv_item_footer);
-
+        MainActivity.callAnimationIn(rootView,getContext(),R.anim.slide_in_left,null);
         return rootView;
     }
 
@@ -151,9 +153,14 @@ public class ItemFragment extends Fragment {
         tvItemClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (dataItemPasser2 != null) {
-                    dataItemPasser2.getTuyenDung(null, "BACK2");
-                }
+                MainActivity.callAnimationOut(rootView, getContext(), R.anim.slide_out_right, new AnimationInf() {
+                    @Override
+                    public void afterAnim() {
+                        if (dataItemPasser2 != null) {
+                            dataItemPasser2.getTuyenDung(null, "BACK2");
+                        }
+                    }
+                });
             }
         });
 

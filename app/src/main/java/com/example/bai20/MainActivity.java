@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -53,14 +55,14 @@ public class MainActivity extends AppCompatActivity {
         f1.passDataPaserItem(new TuyenDung() {
             @Override
             public void getTuyenDung(PageFragment1Model tuyendungObj, String msg) {
-               switch (msg){
-                   case "NEXT":
-                       buttonFab.hide();
-                       break;
-                   case "BACK":
-                       buttonFab.show();
-                       break;
-               }
+                switch (msg) {
+                    case "NEXT":
+                        buttonFab.hide();
+                        break;
+                    case "BACK":
+                        buttonFab.show();
+                        break;
+                }
             }
         });
         lst.add(f1);
@@ -83,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-                
+
                 switch (position) {
                     case 0:
                         tvTab0.setTypeface(Typeface.createFromAsset(MainActivity.this.getAssets(), "fonts/helveticalmedium.ttf"));
@@ -132,7 +134,6 @@ public class MainActivity extends AppCompatActivity {
     public View onCreateView(@Nullable View parent, @NonNull String name, @NonNull Context context, @NonNull AttributeSet attrs) {
 
         containerRoot = (ViewGroup) getWindow().getDecorView().getRootView();
-
         return super.onCreateView(parent, name, context, attrs);
 
     }
@@ -183,21 +184,17 @@ public class MainActivity extends AppCompatActivity {
 //                }
 //            }
 //        });
-
-
         ((FragmentAddTuyenDung) fragment).passData(new TuyenDung() {
             @Override
             public void getTuyenDung(PageFragment1Model tuyendungObj, String msg) {
                 switch (msg) {
                     case "DATA":
                         //call du lieu ra
-
                         if (pagerAdapter.getItem(0) != null) {
                             if (pagerAdapter.getItem(0) instanceof PageFragment && tuyendungObj != null) {
                                 ((PageFragment) pagerAdapter.getItem(0)).addData(tuyendungObj);
                             }
                         }
-
                         break;
                     case "BACK":
                         //callclose Fragment
@@ -227,5 +224,50 @@ public class MainActivity extends AppCompatActivity {
         super.onBackPressed();
 
 
+    }
+
+    public static void callAnimationOut(final View view, Context context, int idAnimation, final AnimationInf interfaceAnim) {
+        if (view == null) return;
+        Animation anim = AnimationUtils.loadAnimation(context, idAnimation);
+        anim.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                view.setVisibility(View.GONE);
+                if (interfaceAnim != null) interfaceAnim.afterAnim();
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+        view.startAnimation(anim);
+    }
+
+    public static void callAnimationIn(final View view, Context context, int idAnimation, final AnimationInf interfaceAnim) {
+        if (view == null) return;
+        Animation anim = AnimationUtils.loadAnimation(context, idAnimation);
+        anim.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                if (interfaceAnim != null) interfaceAnim.afterAnim();
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+        view.startAnimation(anim);
     }
 }
