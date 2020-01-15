@@ -54,9 +54,26 @@ public class NavigationFragment extends Fragment {
     }
 
     private void creatNavItem() {
-        for (int i = 0; i < 8; i++){
-            NavigationItemModel data = new NavigationItemModel("","Tài khoản Doanh Nghiệp",0);
-            itemNav.add(data);
-        }
+
+        NavigationItemModel data = new NavigationItemModel(getString(R.string.icon_tkdn), "Tài khoản Doanh Nghiệp", 0);
+        itemNav.add(data);
+
+        data = new NavigationItemModel(getString(R.string.icon_doitk), "Chuyển đổi tài khoản", 1);
+        itemNav.add(data);
+
+        data = new NavigationItemModel(getString(R.string.icon_flash), "Lịch phỏng vấn", 2);
+        itemNav.add(data);
+
+        data = new NavigationItemModel(getString(R.string.icon_package), "Gói dịch vụ", 3);
+        itemNav.add(data);
+
+        data = new NavigationItemModel(getString(R.string.icon_about), "Thông tin ứng dụng", 4);
+        itemNav.add(data);
+
+        data = new NavigationItemModel(getString(R.string.icon_terms), "Điều khoản sử dụng", 5);
+        itemNav.add(data);
+
+        data = new NavigationItemModel(getString(R.string.icon_share), "Giới thiệu Tuổi Trẻ Tìm Việc cho bạn bè", 6);
+        itemNav.add(data);
     }
 }

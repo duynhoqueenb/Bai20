@@ -1,5 +1,6 @@
 package com.example.bai20;
 
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +31,11 @@ public class NavigationListAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        ((NavigationViewHolder) holder).icon.setText(itemNavList.get(position).getIcon());
+        ((NavigationViewHolder) holder).title.setText(itemNavList.get(position).getTitle());
 
+        Typeface myIconEx = Typeface.createFromAsset(holder.itemView.getContext().getAssets(), "fonts/TuoiTreTV.ttf");
+        ((NavigationViewHolder) holder).icon.setTypeface(myIconEx);
     }
 
     @Override
@@ -39,9 +44,12 @@ public class NavigationListAdapter extends RecyclerView.Adapter {
     }
 
     private class NavigationViewHolder extends RecyclerView.ViewHolder{
+        private TextView icon;
         private TextView title;
-        public NavigationViewHolder(@NonNull View itemView) {
+        public NavigationViewHolder(View itemView) {
             super(itemView);
+            icon = itemView.findViewById(R.id.nav_item_icontaikhoan);
+            title = itemView.findViewById(R.id.nav_item_taikhoan);
         }
     }
 }

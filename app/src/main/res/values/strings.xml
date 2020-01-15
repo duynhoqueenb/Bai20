@@ -13,6 +13,12 @@
     <string name="icon_next">&#xe949;</string>
     <string name="icon_close">&#xe939;</string>
     <string name="icon_user">&#xe902;</string>
+    <string name="icon_tkdn">&#xe906;</string>
+    <string name="icon_doitk">&#xe902;</string>
+    <string name="icon_package">&#xe903;</string>
+    <string name="icon_about">&#xe900;</string>
+    <string name="icon_terms">&#xe905;</string>
+    <string name="icon_share">&#xe904;</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
