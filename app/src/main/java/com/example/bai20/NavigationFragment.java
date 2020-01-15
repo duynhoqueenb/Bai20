@@ -10,7 +10,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +51,10 @@ public class NavigationFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_navigation, container, false);
+
+        ImageView imgAvatar = view.findViewById(R.id.nav_img_header);
+        GlideApp.with(this).load("https://html5box.com/html5lightbox/images/Evening_1024.jpg")
+                .transform(new CenterCrop(), new RoundedCorners(26)).into(imgAvatar);
 
         recyclerView = view.findViewById(R.id.nav_header_rv);
         creatNavItem();

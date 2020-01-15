@@ -152,16 +152,16 @@ public class MainActivity extends AppCompatActivity {
         ((NavigationFragment) fragment).passDataPaserItemNav(new NavigationItem() {
             @Override
             public void getNavigationItem(NavigationItemModel objNav, String msg) {
-                switch (msg){
+                switch (msg) {
                     case "NAVCALLBACK":
-                        switch (objNav.getId()){
+                        switch (objNav.getId()) {
                             case 0:
                                 drawerLayout.closeDrawer(GravityCompat.START);
                                 drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
                                 buttonFab.hide();
                                 Fragment fragmentTKDN = TkDoanhNghiepFragment.newInstance();
                                 FragmentTransaction fragmentTransactionTKDN = getSupportFragmentManager().beginTransaction();
-                                fragmentTransactionTKDN.add(R.id.placeholder,fragmentTKDN);
+                                fragmentTransactionTKDN.add(R.id.placeholder, fragmentTKDN);
                                 fragmentTransactionTKDN.commitAllowingStateLoss();
                                 break;
                         }
