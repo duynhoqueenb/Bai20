@@ -105,6 +105,11 @@ public class PageFragment extends Fragment {
                     dataPasserItem.getTuyenDung(null, "NEXT");
                 }
             }
+
+            @Override
+            public void onNavItemClick(NavigationItemModel itemNavModel, int positon) {
+
+            }
         });
 
         return view;
@@ -124,9 +129,8 @@ public class PageFragment extends Fragment {
     }
 
     void addData(PageFragment1Model objAdd) {
-        Log.e("A", "222");
+
         if (objAdd != null) {
-            Log.e("A" + itemList.size(), "3333");
             itemList.add(objAdd);
             if (listAdapter == null) {
                 listAdapter = new ListAdapter();

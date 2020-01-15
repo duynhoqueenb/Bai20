@@ -14,6 +14,11 @@ import java.util.List;
 
 public class NavigationListAdapter extends RecyclerView.Adapter {
     private List<NavigationItemModel> itemNavList = new ArrayList<>();
+    private OnItemClickListener listenerNav;
+
+    public void setOnClickNav(OnItemClickListener listener) {
+        this.listenerNav = listener;
+    }
 
     public NavigationListAdapter(List<NavigationItemModel> itemNavList) {
         if (itemNavList != null) {
@@ -25,17 +30,24 @@ public class NavigationListAdapter extends RecyclerView.Adapter {
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.navigation_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.navigation_item, parent, false);
         return new NavigationViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder holder, final int position) {
         ((NavigationViewHolder) holder).icon.setText(itemNavList.get(position).getIcon());
         ((NavigationViewHolder) holder).title.setText(itemNavList.get(position).getTitle());
 
         Typeface myIconEx = Typeface.createFromAsset(holder.itemView.getContext().getAssets(), "fonts/TuoiTreTV.ttf");
         ((NavigationViewHolder) holder).icon.setTypeface(myIconEx);
+
+        ((NavigationViewHolder) holder).itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listenerNav.onNavItemClick(itemNavList.get(position),holder.getLayoutPosition());
+            }
+        });
     }
 
     @Override
@@ -43,9 +55,10 @@ public class NavigationListAdapter extends RecyclerView.Adapter {
         return itemNavList.size();
     }
 
-    private class NavigationViewHolder extends RecyclerView.ViewHolder{
+    private class NavigationViewHolder extends RecyclerView.ViewHolder {
         private TextView icon;
         private TextView title;
+
         public NavigationViewHolder(View itemView) {
             super(itemView);
             icon = itemView.findViewById(R.id.nav_item_icontaikhoan);

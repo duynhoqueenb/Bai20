@@ -7,4 +7,6 @@ public interface OnItemClickListener {
     public void onItemClick(PageFragment1Model itemModel, int position);
 
     public void onUngVienClick(PageFragment1Model itemModel, int position);
+
+    public void onNavItemClick(NavigationItemModel itemNavModel, int positon);
 }

@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +23,8 @@ public class NavigationFragment extends Fragment {
     private List<NavigationItemModel> itemNav = new ArrayList<>();
     private NavigationListAdapter navAdaper;
     private RecyclerView.LayoutManager layoutNavManager;
+
+    private NavigationItem dataNavPasser;
 
     public NavigationFragment() {
         // Required empty public constructor
@@ -42,7 +46,7 @@ public class NavigationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_navigation, container, false);
+        View view = inflater.inflate(R.layout.fragment_navigation, container, false);
 
         recyclerView = view.findViewById(R.id.nav_header_rv);
         creatNavItem();
@@ -50,7 +54,28 @@ public class NavigationFragment extends Fragment {
         recyclerView.setAdapter(navAdaper);
         layoutNavManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutNavManager);
+
+        navAdaper.setOnClickNav(new OnItemClickListener() {
+            @Override
+            public void onItemClick(PageFragment1Model itemModel, int position) {
+
+            }
+
+            @Override
+            public void onUngVienClick(PageFragment1Model itemModel, int position) {
+
+            }
+
+            @Override
+            public void onNavItemClick(NavigationItemModel itemNavModel, int positon) {
+                dataNavPasser.getNavigationItem(itemNavModel,"NAVCALLBACK");
+            }
+        });
         return view;
+    }
+
+    public void passDataPaserItemNav(NavigationItem data) {
+        this.dataNavPasser = data;
     }
 
     private void creatNavItem() {

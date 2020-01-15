@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -147,7 +148,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addFragmentNav() {
-        Fragment fragment = NavigationFragment.newInstance();
+        final Fragment fragment = NavigationFragment.newInstance();
+        ((NavigationFragment) fragment).passDataPaserItemNav(new NavigationItem() {
+            @Override
+            public void getNavigationItem(NavigationItemModel objNav, String msg) {
+                switch (msg){
+                    case "NAVCALLBACK":
+                        switch (objNav.getId()){
+                            case 0:
+                                drawerLayout.closeDrawer(GravityCompat.START);
+                                drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+                                buttonFab.hide();
+                                Fragment fragmentTKDN = TkDoanhNghiepFragment.newInstance();
+                                FragmentTransaction fragmentTransactionTKDN = getSupportFragmentManager().beginTransaction();
+                                fragmentTransactionTKDN.add(R.id.placeholder,fragmentTKDN);
+                                fragmentTransactionTKDN.commitAllowingStateLoss();
+                                break;
+                        }
+                        break;
+                }
+            }
+        });
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.rl_navigation, fragment);
         fragmentTransaction.commitAllowingStateLoss();
