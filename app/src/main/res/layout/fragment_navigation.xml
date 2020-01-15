@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NavigationFragment"
+    android:background="#ffffff">
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="40dp"
+        android:id="@+id/nav_img_header"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nguyễn Bảo Trân"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:layout_toRightOf="@id/nav_img_header"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/nav_header_ten"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/nav_img_header"
+        android:layout_below="@id/nav_header_ten"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:text="Nữ, 28 tuổi, Tp. Hồ Chí Minh"
+        android:id="@+id/nav_header_content"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="18dp"
+        android:layout_below="@id/nav_header_content"
+        android:layout_marginTop="34dp"
+        android:background="#c9c9c9"/>
+
+
+</RelativeLayout>

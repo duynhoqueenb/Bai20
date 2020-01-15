@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,16 +55,17 @@ public class MainActivity extends AppCompatActivity {
         TextView icon_navigate = findViewById(R.id.icon_navigate);
         icon_navigate.setTypeface(Typeface.createFromAsset(MainActivity.this.getAssets(), "fonts/TuoiTreTV.ttf"));
 
+        //add Drawer Layout
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nvView);
-
+        addFragmentNav();
         icon_navigate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(drawerLayout != null) {
-                    if(drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                if (drawerLayout != null) {
+                    if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
                         drawerLayout.closeDrawer(GravityCompat.START);
-                    }else {
+                    } else {
                         drawerLayout.openDrawer(GravityCompat.START);
                     }
                 }
@@ -142,6 +144,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    private void addFragmentNav() {
+        Fragment fragment = NavigationFragment.newInstance();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.rl_navigation, fragment);
+        fragmentTransaction.commitAllowingStateLoss();
     }
 
 //    @Override
