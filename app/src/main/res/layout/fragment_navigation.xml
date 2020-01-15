@@ -40,7 +40,18 @@
         android:layout_marginLeft="18dp"
         android:layout_below="@id/nav_header_content"
         android:layout_marginTop="34dp"
-        android:background="#c9c9c9"/>
+        android:background="#c9c9c9"
+        android:id="@+id/nav_header_line"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/nav_header_line"
+        android:paddingTop="30dp"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
+        android:id="@+id/nav_header_rv">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 </RelativeLayout>

@@ -12,9 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Tư Lầu on 12/24/19.
- */
 public class ListAdapter2 extends RecyclerView.Adapter {
 
 
@@ -39,7 +36,7 @@ public class ListAdapter2 extends RecyclerView.Adapter {
         ((ListViewHolder2) holder).title2.setText(itemList2.get(position).getTitle2());
         ((ListViewHolder2) holder).year2.setText(itemList2.get(position).getYear());
 
-        Typeface myIconEx = Typeface.createFromAsset(holder.itemView.getContext().getAssets(),"fonts/TuoiTreTV.ttf");
+        Typeface myIconEx = Typeface.createFromAsset(holder.itemView.getContext().getAssets(), "fonts/TuoiTreTV.ttf");
         ((ListViewHolder2) holder).icon2.setTypeface(myIconEx);
     }
 
@@ -48,13 +45,13 @@ public class ListAdapter2 extends RecyclerView.Adapter {
         return itemList2.size();
     }
 
-    private class ListViewHolder2 extends RecyclerView.ViewHolder{
+    private class ListViewHolder2 extends RecyclerView.ViewHolder {
 
         private TextView title2;
         private TextView year2;
         private TextView icon2;
 
-        public ListViewHolder2(View itemView2){
+        public ListViewHolder2(View itemView2) {
             super(itemView2);
             title2 = itemView2.findViewById(R.id.li_title2);
             icon2 = itemView2.findViewById(R.id.li_iconEx);
