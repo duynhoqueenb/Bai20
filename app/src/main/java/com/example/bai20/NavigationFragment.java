@@ -76,7 +76,7 @@ public class NavigationFragment extends Fragment {
 
             @Override
             public void onNavItemClick(NavigationItemModel itemNavModel, int positon) {
-                dataNavPasser.getNavigationItem(itemNavModel,"NAVCALLBACK");
+                dataNavPasser.getNavigationItem(itemNavModel, "NAVCALLBACK");
             }
         });
         return view;

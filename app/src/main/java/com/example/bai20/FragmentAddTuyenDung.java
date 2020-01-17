@@ -153,6 +153,8 @@ public class FragmentAddTuyenDung extends Fragment {
         //tangdientich bam
 //        expandTextArea(icon_back);
 
+
+
     }
 
     public int convertToPx(int dp) {

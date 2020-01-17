@@ -161,10 +161,13 @@ public class MainActivity extends AppCompatActivity {
                                 buttonFab.hide();
                                 Fragment fragmentTKDN = TkDoanhNghiepFragment.newInstance();
                                 FragmentTransaction fragmentTransactionTKDN = getSupportFragmentManager().beginTransaction();
+
                                 fragmentTransactionTKDN.add(R.id.placeholder, fragmentTKDN);
                                 fragmentTransactionTKDN.commitAllowingStateLoss();
                                 break;
                         }
+                        break;
+                    case "":
                         break;
                 }
             }
@@ -275,8 +278,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
 
+        super.onBackPressed();
 
     }
 
