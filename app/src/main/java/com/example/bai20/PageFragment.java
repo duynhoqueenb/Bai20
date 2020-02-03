@@ -64,8 +64,6 @@ public class PageFragment extends Fragment {
         listAdapter.setData(itemList);
 
 
-
-
         listAdapter.setOnClick(new OnItemClickListener() {
 
             //item onclick
@@ -103,7 +101,8 @@ public class PageFragment extends Fragment {
             //ungvien onclick
             @Override
             public void onUngVienClick(PageFragment1Model itemModel, int position) {
-                callUngVienFragment(itemModel, position,"UNGVIEN");
+                ((MainActivity) getActivity()).flagUngVien = true;
+                callUngVienFragment(itemModel, position, "UNGVIEN");
                 if (dataPasserItem != null) {
                     dataPasserItem.getTuyenDung(null, "NEXT");
                 }

@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
+    public boolean flagUngVien = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -279,11 +280,15 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
         Fragment f = MainActivity.this.getSupportFragmentManager().findFragmentById(R.id.placeholder);
-        if(f !=null) {
-            buttonFab.show();
+
+        if (f != null) {
+            if (flagUngVien || f instanceof ItemFragment) {   //khi UngVienFM duoc goi truc tiep
+                buttonFab.show();
+                flagUngVien = false;
+            }
             callCloseFragment(f);
+
         } else {
             super.onBackPressed();
         }
