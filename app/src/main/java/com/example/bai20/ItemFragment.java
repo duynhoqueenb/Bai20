@@ -38,7 +38,7 @@ public class ItemFragment extends Fragment {
     }
 
 
-    public static ItemFragment newInstance(PageFragment1Model mObj, Integer mPosition) {
+    public static ItemFragment newInstance(PageFragment1Model mObj, int mPosition) {
         ItemFragment fragment = new ItemFragment();
 
         Bundle bundle = new Bundle();

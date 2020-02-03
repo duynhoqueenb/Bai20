@@ -24,11 +24,19 @@ public class ListAdapter extends RecyclerView.Adapter {
     public ListAdapter() {
     }
 
+    public void setData(List<PageFragment1Model> itemList) {
+
+        if (itemList != null) {
+
+            this.itemList = itemList;
+            notifyDataSetChanged();
+
+        }
+    }
+
     public void setOnClick(OnItemClickListener listener) {
         this.listener = listener;
     }
-
-
 
 
     @NonNull
@@ -67,7 +75,7 @@ public class ListAdapter extends RecyclerView.Adapter {
         ((ListViewHolder) holder).mRlUngVien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onUngVienClick(itemList.get(position),holder.getLayoutPosition());
+                listener.onUngVienClick(itemList.get(position), holder.getLayoutPosition());
             }
         });
     }
@@ -75,16 +83,6 @@ public class ListAdapter extends RecyclerView.Adapter {
     @Override
     public int getItemCount() {
         return itemList.size();
-    }
-
-    public void setData(List<PageFragment1Model> itemList) {
-
-        if (itemList != null) {
-
-            this.itemList = itemList;
-            notifyDataSetChanged();
-//            Log.e("A>>" + getItemCount(), this.itemList.toString());
-        }
     }
 
 

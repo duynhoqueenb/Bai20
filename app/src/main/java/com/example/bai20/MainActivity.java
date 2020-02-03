@@ -276,11 +276,17 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
     @Override
     public void onBackPressed() {
 
-        super.onBackPressed();
-
+        Fragment f = MainActivity.this.getSupportFragmentManager().findFragmentById(R.id.placeholder);
+        if(f !=null) {
+            buttonFab.show();
+            callCloseFragment(f);
+        } else {
+            super.onBackPressed();
+        }
     }
 
     public static void callAnimationOut(final View view, Context context, int idAnimation, final AnimationInf interfaceAnim) {

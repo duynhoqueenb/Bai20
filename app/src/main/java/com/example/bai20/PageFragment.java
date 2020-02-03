@@ -65,8 +65,10 @@ public class PageFragment extends Fragment {
 
 
 
-        //item onclick
+
         listAdapter.setOnClick(new OnItemClickListener() {
+
+            //item onclick
             @Override
             public void onItemClick(PageFragment1Model itemModel, int position) {
 
@@ -98,6 +100,7 @@ public class PageFragment extends Fragment {
 
             }
 
+            //ungvien onclick
             @Override
             public void onUngVienClick(PageFragment1Model itemModel, int position) {
                 callUngVienFragment(itemModel, position,"UNGVIEN");
