@@ -283,7 +283,7 @@ public class MainActivity extends AppCompatActivity {
         Fragment f = MainActivity.this.getSupportFragmentManager().findFragmentById(R.id.placeholder);
 
         if (f != null) {
-            if (flagUngVien || f instanceof ItemFragment) {   //khi UngVienFM duoc goi truc tiep
+            if (flagUngVien || f instanceof ItemFragment || f instanceof FragmentAddTuyenDung || f instanceof TkDoanhNghiepFragment) {   //khi UngVienFM duoc goi truc tiep
                 buttonFab.show();
                 flagUngVien = false;
             }
