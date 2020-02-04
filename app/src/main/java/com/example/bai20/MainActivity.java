@@ -57,6 +57,37 @@ public class MainActivity extends AppCompatActivity {
         TextView icon_navigate = findViewById(R.id.icon_navigate);
         icon_navigate.setTypeface(Typeface.createFromAsset(MainActivity.this.getAssets(), "fonts/TuoiTreTV.ttf"));
 
+        //add Search Layout
+        icon_thongbao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                buttonFab.hide();
+                FragmentTransaction searchFragmentTransaction = getSupportFragmentManager().beginTransaction();
+                final Fragment searchFragment = SearchFragment.newInstance();
+                ((SearchFragment) searchFragment).passDataSearch(new TuyenDung() {
+                    @Override
+                    public void getTuyenDung(PageFragment1Model tuyendungObj, String msg) {
+
+                    }
+
+                    @Override
+                    public void getSearch(String msg1) {
+                        switch (msg1){
+                            case "BACKSEARCH":
+                                buttonFab.show();
+                                callCloseFragment(searchFragment);
+                                break;
+                        }
+                    }
+                });
+
+                searchFragmentTransaction.add(R.id.placeholder,searchFragment);
+                searchFragmentTransaction.commitAllowingStateLoss();
+            }
+        });
+
+
+
         //add Drawer Layout
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nvView);
@@ -91,6 +122,11 @@ public class MainActivity extends AppCompatActivity {
                         buttonFab.show();
                         break;
                 }
+            }
+
+            @Override
+            public void getSearch(String msg) {
+
             }
         });
         lst.add(f1);
@@ -261,6 +297,11 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
             }
+
+            @Override
+            public void getSearch(String msg) {
+
+            }
         });
 
         fragmentTransaction.replace(R.id.placeholder, fragment);
@@ -281,11 +322,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Fragment f = MainActivity.this.getSupportFragmentManager().findFragmentById(R.id.placeholder);
-
         if (f != null) {
-            if (flagUngVien || f instanceof ItemFragment || f instanceof FragmentAddTuyenDung || f instanceof TkDoanhNghiepFragment) {   //khi UngVienFM duoc goi truc tiep
+            if (flagUngVien || f instanceof ItemFragment || f instanceof FragmentAddTuyenDung || f instanceof TkDoanhNghiepFragment || f instanceof SearchFragment) {   //khi UngVienFM duoc goi truc tiep
                 buttonFab.show();
                 flagUngVien = false;
+                drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
             }
             callCloseFragment(f);
 

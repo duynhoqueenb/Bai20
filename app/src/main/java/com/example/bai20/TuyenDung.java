@@ -8,4 +8,5 @@ public interface TuyenDung {
 
     void getTuyenDung(PageFragment1Model tuyendungObj, String msg);
 
+    void getSearch(String msg1);
 }

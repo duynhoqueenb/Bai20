@@ -90,6 +90,11 @@ public class PageFragment extends Fragment {
                                 break;
                         }
                     }
+
+                    @Override
+                    public void getSearch(String msg) {
+
+                    }
                 });
 
                 if (dataPasserItem != null) {
@@ -178,6 +183,11 @@ public class PageFragment extends Fragment {
                                 break;
                         }
                     }
+
+                    @Override
+                    public void getSearch(String msg) {
+
+                    }
                 });
                 break;
             case "ITEM":
@@ -189,6 +199,11 @@ public class PageFragment extends Fragment {
                                 callCloseFragment(fragment);
                                 break;
                         }
+                    }
+
+                    @Override
+                    public void getSearch(String msg) {
+
                     }
                 });
                 break;

@@ -19,6 +19,7 @@
     <string name="icon_about">&#xe900;</string>
     <string name="icon_terms">&#xe905;</string>
     <string name="icon_share">&#xe904;</string>
+    <string name="icon_search">&#xe91c;</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
