@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SearchFragment"
     android:background="#ffffff"
-    android:clickable="true">
+    android:clickable="true"
+    tools:context=".SearchFragment">
 
     <RelativeLayout
         android:id="@+id/rl_toolbar_search"
@@ -33,81 +33,82 @@
             android:textColor="#ffffff"
             android:textSize="14sp" />
     </RelativeLayout>
+
     <RelativeLayout
+        android:id="@+id/rl_searchBox_search"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@id/rl_toolbar_search"
-        android:paddingRight="18dp"
         android:paddingLeft="18dp"
-        android:id="@+id/rl_searchBox_search">
+        android:paddingRight="18dp">
 
         <TextView
+            android:id="@+id/icon_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/icon_search"
             android:layout_centerVertical="true"
-            android:id="@+id/icon_search"/>
+            android:text="@string/icon_search" />
 
         <EditText
+            android:id="@+id/edt_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/icon_search"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="17dp"
-            android:textColor="#000000"
-            android:id="@+id/edt_search"
+            android:layout_toRightOf="@id/icon_search"
+            android:background="@null"
             android:hint="Input here ..."
             android:inputType="text"
-            android:background="@null"
-            android:layout_centerVertical="true"
+            android:textColor="#000000"
             android:textSize="15sp" />
 
         <TextView
+            android:id="@+id/tv_tim_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tìm"
-            android:textColor="#ff0d0d"
-            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:id="@+id/tv_tim_search"/>
+            android:layout_centerVertical="true"
+            android:text="Tìm"
+            android:textColor="#ff0d0d" />
 
         <TextView
+            android:id="@+id/tv_line1_search"
             android:layout_width="1dp"
             android:layout_height="50dp"
             android:layout_centerVertical="true"
-            android:background="#c9c9c9"
-            android:layout_toLeftOf="@id/tv_tim_search"
             android:layout_marginRight="18dp"
-            android:id="@+id/tv_line1_search"/>
+            android:layout_toLeftOf="@id/tv_tim_search"
+            android:background="#c9c9c9" />
 
         <EditText
+            android:id="@+id/edt_number_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/tv_line1_search"
+            android:layout_centerVertical="true"
             android:layout_marginRight="7dp"
-            android:textColor="#000000"
-            android:id="@+id/edt_number_search"
+            android:layout_toLeftOf="@id/tv_line1_search"
+            android:background="@null"
             android:hint="3 số c..."
             android:inputType="number"
             android:maxLength="3"
-            android:background="@null"
-            android:layout_centerVertical="true"
-            android:textSize="15sp"/>
+            android:textColor="#000000"
+            android:textSize="15sp" />
 
         <TextView
+            android:id="@+id/tv_line2_search"
             android:layout_width="1dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
-            android:background="#c9c9c9"
-            android:layout_toLeftOf="@id/edt_number_search"
             android:layout_marginRight="7dp"
-            android:id="@+id/tv_line2_search"/>
+            android:layout_toLeftOf="@id/edt_number_search"
+            android:background="#c9c9c9" />
     </RelativeLayout>
 
     <TextView
+        android:id="@+id/tv_line3_search"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#c9c9c9"
         android:layout_below="@id/rl_searchBox_search"
-        android:id="@+id/tv_line3_search"/>
+        android:background="#c9c9c9" />
 
 </RelativeLayout>

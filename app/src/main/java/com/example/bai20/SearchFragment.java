@@ -17,7 +17,7 @@ public class SearchFragment extends Fragment {
 
 
     private View rootView;
-    private TextView iconBack,iconSearch;
+    private TextView iconBack, iconSearch;
 
     public SearchFragment() {
         // Required empty public constructor
@@ -61,13 +61,14 @@ public class SearchFragment extends Fragment {
                     @Override
                     public void afterAnim() {
                         if (dataPasserSearch != null) {
-                            dataPasserSearch.getSearch( "BACKSEARCH");
+                            dataPasserSearch.getSearch("BACKSEARCH");
                         }
                     }
                 });
             }
         });
     }
+
     //interface
     TuyenDung dataPasserSearch;
 

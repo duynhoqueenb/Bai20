@@ -32,8 +32,17 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
     ViewGroup containerRoot;
@@ -57,6 +66,28 @@ public class MainActivity extends AppCompatActivity {
         TextView icon_navigate = findViewById(R.id.icon_navigate);
         icon_navigate.setTypeface(Typeface.createFromAsset(MainActivity.this.getAssets(), "fonts/TuoiTreTV.ttf"));
 
+        //fetch data from api
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        Api api = retrofit.create(Api.class);
+
+        Call<DataResponse> call = api.getUsers();
+        call.enqueue(new Callback<DataResponse>() {
+            @Override
+            public void onResponse(Call<DataResponse> call, Response<DataResponse> response) {
+                String userModels = response.body().toString();
+
+                Log.e("TAG",userModels);
+            }
+
+            @Override
+            public void onFailure(Call<DataResponse> call, Throwable t) {
+
+            }
+        });
+
         //add Search Layout
         icon_thongbao.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void getSearch(String msg1) {
-                        switch (msg1){
+                        switch (msg1) {
                             case "BACKSEARCH":
                                 buttonFab.show();
                                 callCloseFragment(searchFragment);
@@ -81,11 +112,10 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-                searchFragmentTransaction.add(R.id.placeholder,searchFragment);
+                searchFragmentTransaction.add(R.id.placeholder, searchFragment);
                 searchFragmentTransaction.commitAllowingStateLoss();
             }
         });
-
 
 
         //add Drawer Layout
