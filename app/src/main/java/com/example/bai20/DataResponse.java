@@ -9,21 +9,21 @@ public class DataResponse {
     private String status;
 
     @SerializedName("elements")
-    private List<UserModel> users;
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public void setUsers(List<UserModel> users) {
-        this.users = users;
-    }
+    private List<UserModel> elements;
 
     public String getStatus() {
         return status;
     }
 
-    public List<UserModel> getUsers() {
-        return users;
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public List<UserModel> getElements() {
+        return elements;
+    }
+
+    public void setElements(List<UserModel> elements) {
+        this.elements = elements;
     }
 }

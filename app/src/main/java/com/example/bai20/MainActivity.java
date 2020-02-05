@@ -77,9 +77,12 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<DataResponse>() {
             @Override
             public void onResponse(Call<DataResponse> call, Response<DataResponse> response) {
-                String userModels = response.body().toString();
+                DataResponse dataResponse = response.body();
+                Log.d("TAG_NAME", dataResponse.getElements().size()+"");
 
-                Log.e("TAG",userModels);
+
+
+
             }
 
             @Override
