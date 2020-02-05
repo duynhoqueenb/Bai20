@@ -118,7 +118,7 @@
         android:textSize="18dp"
         android:layout_below="@id/tv_line3_search"
         android:id="@+id/tv_kqtk_search"
-        android:layout_margin="18dp"/>
+        android:layout_margin="18dp" />
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

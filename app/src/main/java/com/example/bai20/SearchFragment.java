@@ -67,6 +67,8 @@ public class SearchFragment extends Fragment {
                 });
             }
         });
+
+
     }
 
     //interface
