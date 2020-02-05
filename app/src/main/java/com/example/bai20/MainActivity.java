@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<DataResponse> call, Response<DataResponse> response) {
                 DataResponse dataResponse = response.body();
                 Log.d("TAG_NAME", dataResponse.getElements().size()+"");
-git
+
             }
 
             @Override
