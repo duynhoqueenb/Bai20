@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     public boolean flagUngVien = false;
+    public Api api;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 .baseUrl(Api.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        Api api = retrofit.create(Api.class);
+        api = retrofit.create(Api.class);
 
         Call<DataResponse> call = api.getUsers();
         call.enqueue(new Callback<DataResponse>() {
@@ -79,9 +80,6 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<DataResponse> call, Response<DataResponse> response) {
                 DataResponse dataResponse = response.body();
                 Log.d("TAG_NAME", dataResponse.getElements().size()+"");
-
-
-
 
             }
 
