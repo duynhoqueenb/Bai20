@@ -97,14 +97,14 @@ public class SearchFragment extends Fragment {
             public void onResponse(Call<DataResponse> call, Response<DataResponse> response) {
                 DataResponse dataResponse = response.body();
                 itemListSearch = dataResponse.getElements();
-                Log.e("11", "1111");
+
                 searchAdapter.setDataList(itemListSearch);
                 searchAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onFailure(Call<DataResponse> call, Throwable t) {
-                Log.e("00", "0000");
+
             }
         });
 

@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean flagUngVien = false;
     public static Api api;
     public Retrofit retrofit;
-
+    private String BASE_URL = "https://webservice.piepme.com/v1/service/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
         //fetch data from api
         retrofit = new Retrofit.Builder()
-                .baseUrl(Api.BASE_URL)
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         api = retrofit.create(Api.class);
