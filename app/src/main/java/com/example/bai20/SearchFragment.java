@@ -6,23 +6,37 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 
 public class SearchFragment extends Fragment {
 
-
     private View rootView;
     private TextView iconBack, iconSearch;
+    private Call<DataResponse> call;
+
+    private RecyclerView rvSearch;
+    private SearchAdapter searchAdapter;
+    private RecyclerView.LayoutManager rvLayoutManagerSearch;
+    private List<UserModel> itemListSearch = new ArrayList<>();
 
     public SearchFragment() {
         // Required empty public constructor
     }
-
 
     public static SearchFragment newInstance() {
         SearchFragment fragment = new SearchFragment();
@@ -42,6 +56,8 @@ public class SearchFragment extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_search, container, false);
         iconBack = rootView.findViewById(R.id.tv_search_iconBack);
         iconSearch = rootView.findViewById(R.id.icon_search);
+        rvSearch = rootView.findViewById(R.id.rv_listketqua_search);
+
         MainActivity.callAnimationIn(rootView, getContext(), R.anim.slide_in_left, null);
         return rootView;
     }
@@ -65,6 +81,30 @@ public class SearchFragment extends Fragment {
                         }
                     }
                 });
+            }
+        });
+
+
+        searchAdapter = new SearchAdapter(itemListSearch);
+        rvSearch.setAdapter(searchAdapter);
+        rvLayoutManagerSearch = new LinearLayoutManager(getActivity());
+        rvSearch.setLayoutManager(rvLayoutManagerSearch);
+
+
+        call = MainActivity.api.getUsers();
+        call.enqueue(new Callback<DataResponse>() {
+            @Override
+            public void onResponse(Call<DataResponse> call, Response<DataResponse> response) {
+                DataResponse dataResponse = response.body();
+                itemListSearch = dataResponse.getElements();
+                Log.e("11", "1111");
+                searchAdapter.setDataList(itemListSearch);
+                searchAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(Call<DataResponse> call, Throwable t) {
+                Log.e("00", "0000");
             }
         });
 

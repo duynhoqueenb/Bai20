@@ -55,7 +55,8 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     public boolean flagUngVien = false;
-    public Api api;
+    public static Api api;
+    public Retrofit retrofit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,26 +69,13 @@ public class MainActivity extends AppCompatActivity {
         icon_navigate.setTypeface(Typeface.createFromAsset(MainActivity.this.getAssets(), "fonts/TuoiTreTV.ttf"));
 
         //fetch data from api
-        Retrofit retrofit = new Retrofit.Builder()
+        retrofit = new Retrofit.Builder()
                 .baseUrl(Api.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         api = retrofit.create(Api.class);
 
-        Call<DataResponse> call = api.getUsers();
-        call.enqueue(new Callback<DataResponse>() {
-            @Override
-            public void onResponse(Call<DataResponse> call, Response<DataResponse> response) {
-                DataResponse dataResponse = response.body();
-                Log.d("TAG_NAME", dataResponse.getElements().size()+"");
 
-            }
-
-            @Override
-            public void onFailure(Call<DataResponse> call, Throwable t) {
-
-            }
-        });
 
         //add Search Layout
         icon_thongbao.setOnClickListener(new View.OnClickListener() {
@@ -174,7 +162,6 @@ public class MainActivity extends AppCompatActivity {
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                Log.e("TAG", "onPageScrolled");
 
             }
 
@@ -199,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onPageScrollStateChanged(int state) {
-                Log.e("TAG", "onPageScrollStateChanged");
+
             }
         });
 
