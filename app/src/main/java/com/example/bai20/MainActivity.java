@@ -45,9 +45,10 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
-    ViewGroup containerRoot;
-    ViewPager viewPager;
-    TabLayout tabLayout;
+
+    private ViewGroup containerRoot;
+    private ViewPager viewPager;
+    private TabLayout tabLayout;
     public static FloatingActionButton buttonFab;
     private SampleFragmentPagerAdapter pagerAdapter;
     private FragmentManager fragmentManager;
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
     public static Api api;
     public Retrofit retrofit;
     private String BASE_URL = "https://webservice.piepme.com/v1/service/";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,8 +76,6 @@ public class MainActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         api = retrofit.create(Api.class);
-
-
 
         //add Search Layout
         icon_thongbao.setOnClickListener(new View.OnClickListener() {
@@ -105,7 +105,6 @@ public class MainActivity extends AppCompatActivity {
                 searchFragmentTransaction.commitAllowingStateLoss();
             }
         });
-
 
         //add Drawer Layout
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -198,8 +197,6 @@ public class MainActivity extends AppCompatActivity {
                 buttonFab.hide();
             }
         });
-
-
     }
 
     private void addFragmentNav() {
