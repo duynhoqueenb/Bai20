@@ -17,9 +17,11 @@ import android.widget.TextView;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -71,35 +73,38 @@ public class SearchFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
 
+        super.onViewCreated(view, savedInstanceState);
         Typeface myIconEdit = Typeface.createFromAsset(getContext().getAssets(), "fonts/TuoiTreTV.ttf");
         iconBack.setTypeface(myIconEdit);
         iconSearch.setTypeface(myIconEdit);
-
         iconBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 MainActivity.callAnimationOut(rootView, getContext(), R.anim.slide_out_right, new AnimationInf() {
                     @Override
                     public void afterAnim() {
                         if (dataPasserSearch != null) {
+
                             dataPasserSearch.getSearch("BACKSEARCH");
+
                         }
+
                     }
                 });
+
             }
         });
-
 
         searchAdapter = new SearchAdapter(itemListSearch);
         rvSearch.setAdapter(searchAdapter);
         rvLayoutManagerSearch = new LinearLayoutManager(getActivity());
         rvSearch.setLayoutManager(rvLayoutManagerSearch);
 
-
         call = MainActivity.api.getEverything("17590", "duy", "", "qbtest_NhapMaGt2333", "v1", "oppo", "28", "android", "167", "326eb6e645c9ef419bc5c7b24560f57c");
         call.enqueue(new Callback<DataResponse>() {
+
             @Override
             public void onResponse(Call<DataResponse> call, Response<DataResponse> response) {
                 DataResponse dataResponse = response.body();
@@ -113,8 +118,8 @@ public class SearchFragment extends Fragment {
             public void onFailure(Call<DataResponse> call, Throwable t) {
 
             }
-        });
 
+        });
 
     }
 
@@ -169,5 +174,12 @@ public class SearchFragment extends Fragment {
             hexString.append(hex);
         }
         return hexString.toString();
+    }
+
+    //deAccent
+    public static String deAccent(String str) {
+        String nfdNormalizedString = Normalizer.normalize(str, Normalizer.Form.NFD);
+        Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+        return pattern.matcher(nfdNormalizedString).replaceAll("");
     }
 }
