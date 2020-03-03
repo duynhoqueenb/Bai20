@@ -13,7 +13,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -42,6 +44,8 @@ public class SearchFragment extends Fragment {
     private static String KEY_TOKEN = "keyToken";
 
     private static String KEY_TOKEN_VALUE = "Piepme2017";
+    private EditText edtSearch;
+    private TextView tv_tim;
 
     public SearchFragment() {
         // Required empty public constructor
@@ -66,6 +70,9 @@ public class SearchFragment extends Fragment {
         iconBack = rootView.findViewById(R.id.tv_search_iconBack);
         iconSearch = rootView.findViewById(R.id.icon_search);
         rvSearch = rootView.findViewById(R.id.rv_listketqua_search);
+        edtSearch = rootView.findViewById(R.id.edt_search);
+        tv_tim = rootView.findViewById(R.id.tv_tim_search);
+
 
         MainActivity.callAnimationIn(rootView, getContext(), R.anim.slide_in_left, null);
         return rootView;
@@ -102,24 +109,35 @@ public class SearchFragment extends Fragment {
         rvLayoutManagerSearch = new LinearLayoutManager(getActivity());
         rvSearch.setLayoutManager(rvLayoutManagerSearch);
 
-        call = MainActivity.api.getEverything("17590", "duy", "", "qbtest_NhapMaGt2333", "v1", "oppo", "28", "android", "167", "326eb6e645c9ef419bc5c7b24560f57c");
-        call.enqueue(new Callback<DataResponse>() {
 
+        tv_tim.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onResponse(Call<DataResponse> call, Response<DataResponse> response) {
-                DataResponse dataResponse = response.body();
-                itemListSearch = dataResponse.getElements();
+            public void onClick(View v) {
+                if (edtSearch.getText().toString().isEmpty()) {
+                    Toast.makeText(getContext(), "Vui lòng nhập vào tên", Toast.LENGTH_SHORT).show();
+                } else {
+                    call = MainActivity.api.getEverything("17590", edtSearch.getText().toString(), "", "qbtest_NhapMaGt2333", "v1", "oppo", "28", "android", "167", "326eb6e645c9ef419bc5c7b24560f57c");
+                    call.enqueue(new Callback<DataResponse>() {
 
-                searchAdapter.setDataList(itemListSearch);
-                searchAdapter.notifyDataSetChanged();
+                        @Override
+                        public void onResponse(Call<DataResponse> call, Response<DataResponse> response) {
+                            DataResponse dataResponse = response.body();
+                            itemListSearch = dataResponse.getElements();
+                            searchAdapter.setDataList(itemListSearch);
+                            searchAdapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onFailure(Call<DataResponse> call, Throwable t) {
+
+                        }
+
+                    });
+                }
             }
-
-            @Override
-            public void onFailure(Call<DataResponse> call, Throwable t) {
-
-            }
-
         });
+
+
 
     }
 

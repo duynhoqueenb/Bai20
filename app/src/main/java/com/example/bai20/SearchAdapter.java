@@ -34,7 +34,8 @@ public class SearchAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return itemListSearchAdapter.size();
+        if (itemListSearchAdapter != null) return itemListSearchAdapter.size();
+        else return 0;
     }
 
     public void setDataList(List<UserModel> itemListSearch) {

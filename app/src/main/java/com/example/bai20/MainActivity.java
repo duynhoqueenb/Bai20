@@ -31,6 +31,8 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import org.json.JSONObject;
 
@@ -71,6 +73,9 @@ public class MainActivity extends AppCompatActivity {
         icon_navigate.setTypeface(Typeface.createFromAsset(MainActivity.this.getAssets(), "fonts/TuoiTreTV.ttf"));
 
         //fetch data from api
+        Gson gson = new GsonBuilder()
+                .setDateFormat("2020-03-03'T'14:40:55Z")
+                .create();
         retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
