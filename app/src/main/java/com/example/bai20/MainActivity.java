@@ -31,13 +31,21 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 import retrofit2.Call;
@@ -61,11 +69,54 @@ public class MainActivity extends AppCompatActivity {
     public static Api api;
     public Retrofit retrofit;
     private String BASE_URL = "https://webservice.piepme.com/v1/service/";
+    private FirebaseDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        // Write a message to the database
+        database = FirebaseDatabase.getInstance();
+        DatabaseReference myData = database.getReference();
+
+
+        ///
+//        Sinhvien sv = new Sinhvien("Nguyen Van A","Quang Nam",2000);
+//        myData.child("Sinh Vien").setValue(sv);
+//        ///
+//        Map<String, Integer> myMap = new HashMap<String, Integer>();
+//        myMap.put("Xe may",2);
+//        myData.child("Phuong tien").setValue(myMap);
+//        ///
+//        Sinhvien sv2 = new Sinhvien("Nguyen Van C","Tam Ky",2009);
+//        myData.child("Hoc Vien").push().setValue(sv2);
+        ///
+//        myData.child("TranDuy").setValue("DEV", new DatabaseReference.CompletionListener() {
+//            @Override
+//            public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+//                if (databaseError == null){
+//                    Toast.makeText(MainActivity.this, "Luu thanh cong", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+        ///
+//        myData.child("Thaonguyen").setValue("BTV");
+//        myData.child("Thaonguyen").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                Toast.makeText(MainActivity.this, "okok", Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+        ///
+
+
 
         TextView icon_thongbao = findViewById(R.id.icon_thongbao);
         icon_thongbao.setTypeface(Typeface.createFromAsset(MainActivity.this.getAssets(), "fonts/TuoiTreTV.ttf"));
@@ -399,4 +450,6 @@ public class MainActivity extends AppCompatActivity {
         });
         view.startAnimation(anim);
     }
+
+
 }

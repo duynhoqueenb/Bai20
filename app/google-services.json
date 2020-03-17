@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1056253657660",
+    "firebase_url": "https://tintuyendung-4ddd6.firebaseio.com",
+    "project_id": "tintuyendung-4ddd6",
+    "storage_bucket": "tintuyendung-4ddd6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1056253657660:android:21e82b74bfc2bf7641f939",
+        "android_client_info": {
+          "package_name": "com.example.bai20"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1056253657660-pvre63fej1pgndudv300e4mtnb76bgon.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBX5GyN-BfryUOWQvzMcupblky2LmC-lbg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1056253657660-pvre63fej1pgndudv300e4mtnb76bgon.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
