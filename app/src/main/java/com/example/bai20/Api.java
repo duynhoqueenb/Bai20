@@ -33,9 +33,7 @@ public interface Api {
             @Query("token") String token
     );
 
-    @POST("f600/f2017_listFriendF600Search")
-    Call<UserModel> createUser(@Body UserModel userModel);
-
+    
 
 
 }
