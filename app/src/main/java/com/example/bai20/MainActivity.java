@@ -1,21 +1,17 @@
 package com.example.bai20;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,26 +27,14 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import org.json.JSONObject;
-
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -69,7 +53,10 @@ public class MainActivity extends AppCompatActivity {
     public static Api api;
     public Retrofit retrofit;
     private String BASE_URL = "https://webservice.piepme.com/v1/service/";
-    private FirebaseDatabase database;
+
+
+    private static final int RC_SIGN_IN = 123;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,45 +64,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        // Write a message to the database
-        database = FirebaseDatabase.getInstance();
-        DatabaseReference myData = database.getReference();
-
-
-        ///
-//        Sinhvien sv = new Sinhvien("Nguyen Van A","Quang Nam",2000);
-//        myData.child("Sinh Vien").setValue(sv);
-//        ///
-//        Map<String, Integer> myMap = new HashMap<String, Integer>();
-//        myMap.put("Xe may",2);
-//        myData.child("Phuong tien").setValue(myMap);
-//        ///
-//        Sinhvien sv2 = new Sinhvien("Nguyen Van C","Tam Ky",2009);
-//        myData.child("Hoc Vien").push().setValue(sv2);
-        ///
-//        myData.child("TranDuy").setValue("DEV", new DatabaseReference.CompletionListener() {
-//            @Override
-//            public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
-//                if (databaseError == null){
-//                    Toast.makeText(MainActivity.this, "Luu thanh cong", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-        ///
-//        myData.child("Thaonguyen").setValue("BTV");
-//        myData.child("Thaonguyen").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                Toast.makeText(MainActivity.this, "okok", Toast.LENGTH_SHORT).show();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
-        ///
-
+        // Firebase
+        DatabaseReference myData = FirebaseDatabase.getInstance().getReference();
 
 
         TextView icon_thongbao = findViewById(R.id.icon_thongbao);
@@ -254,6 +204,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private void addFragmentNav() {
         final Fragment fragment = NavigationFragment.newInstance();
