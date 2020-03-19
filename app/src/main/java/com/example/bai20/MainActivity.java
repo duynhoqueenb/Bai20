@@ -27,8 +27,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -64,8 +63,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        // Firebase
-        DatabaseReference myData = FirebaseDatabase.getInstance().getReference();
 
 
         TextView icon_thongbao = findViewById(R.id.icon_thongbao);
