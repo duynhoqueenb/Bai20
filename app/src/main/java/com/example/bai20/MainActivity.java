@@ -1,21 +1,17 @@
 package com.example.bai20;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -32,15 +28,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
-import org.json.JSONObject;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -60,10 +53,17 @@ public class MainActivity extends AppCompatActivity {
     public Retrofit retrofit;
     private String BASE_URL = "https://webservice.piepme.com/v1/service/";
 
+
+    private static final int RC_SIGN_IN = 123;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
 
         TextView icon_thongbao = findViewById(R.id.icon_thongbao);
         icon_thongbao.setTypeface(Typeface.createFromAsset(MainActivity.this.getAssets(), "fonts/TuoiTreTV.ttf"));
@@ -71,6 +71,9 @@ public class MainActivity extends AppCompatActivity {
         icon_navigate.setTypeface(Typeface.createFromAsset(MainActivity.this.getAssets(), "fonts/TuoiTreTV.ttf"));
 
         //fetch data from api
+        Gson gson = new GsonBuilder()
+                .setDateFormat("2020-03-03'T'14:40:55Z")
+                .create();
         retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -198,6 +201,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private void addFragmentNav() {
         final Fragment fragment = NavigationFragment.newInstance();
@@ -394,4 +398,6 @@ public class MainActivity extends AppCompatActivity {
         });
         view.startAnimation(anim);
     }
+
+
 }

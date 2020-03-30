@@ -1,12 +1,13 @@
 package com.example.bai20;
 
-import org.json.JSONObject;
 
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface Api {
@@ -29,8 +30,11 @@ public interface Api {
             @Query("VERSION") String VERSION,
 
 
-
             @Query("token") String token
+
     );
+
+    
+
 
 }
